@@ -1,0 +1,21 @@
+<div class="container">
+  <form [formGroup]="formRegister">
+    <div class="form-group">
+      <label>firstName</label>
+      <input type="text" class="form-control" formControlName="firstName">
+    </div>
+    <div class="alert alert-danger" *ngIf="formRegister.get('firstName')?.invalid &&
+     formRegister.get('firstName')?.touched">
+      <div *ngIf="formRegister.get('firstName')?.hasError('required')">
+        this field is required
+      </div>
+      <div *ngIf="formRegister.get('firstName')?.hasError('minlength')">
+        please give a valid name with 3 char
+      </div>
+    </div>
+    <button class="btn btn-success" type="submit" [disabled]="formRegister.invalid" >
+      save
+    </button>
+  </form>
+
+</div>
