@@ -1,0 +1,16 @@
+<div class="container">
+  <form #f="ngForm">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" name="title" [(ngModel)]="announcement.title"
+             #t="ngModel" class="form-control" minlength="3" required>
+    </div>
+    <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
+      <div *ngIf="t.hasError('required')">this field is required</div>
+      <div *ngIf="t.hasError('minlength')">minlength is 3</div>
+    </div>
+    <button class="btn btn-success" (click)="save()" [disabled]="f.invalid" >save</button>
+    &nbsp;
+    <button type="reset" class="btn btn-warning">reset</button>
+  </form>
+</div>
