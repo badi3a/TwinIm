@@ -6,5 +6,10 @@ class Address{
 export class User {
   firstName: string;
   lastName: string;
-  address: Address
+  address: Address;
+  phoneNumbers: String[];
+  login: string;
+  password: string;
+  picture:string;
+  birthday: Date;
 }
