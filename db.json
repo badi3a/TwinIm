@@ -1,17 +1,4 @@
 {
-  "users": [
-    {
-      "firstName": "Badiaa",
-      "lastName": "Bouhdid",
-      "address": {
-        "street": "eeeee",
-        "city": "eeeeeeee",
-        "zipCode": "20134"
-      },
-      "phoneNumbers": [
-        "98123456"
-      ],
-      "id": 1
-    }
-  ]
+  "announcements": [],
+  "users": []
 }

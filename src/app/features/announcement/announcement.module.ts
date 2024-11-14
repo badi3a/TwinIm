@@ -5,6 +5,8 @@ import { AnnouncementRoutingModule } from './announcement-routing.module';
 import { AnnouncementComponent } from './announcement.component';
 import { FormComponent } from './form/form.component';
 import {FormsModule} from "@angular/forms";
+import {AnnouncementService} from "./services/announcement.service";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import {FormsModule} from "@angular/forms";
   imports: [
     CommonModule,
     AnnouncementRoutingModule,
-    FormsModule
-  ]
+    FormsModule,
+    HttpClientModule
+  ],
+  providers:[AnnouncementService]
 })
 export class AnnouncementModule { }
