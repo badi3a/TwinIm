@@ -4,6 +4,7 @@ class Address{
   zipCode: string;
 }
 export class User {
+  id: number;
   firstName: string;
   lastName: string;
   address: Address;

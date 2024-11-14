@@ -7,7 +7,7 @@ import { HomeComponent } from './layouts/home/home.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { NotFoundComponent } from './layouts/not-found/not-found.component';
-
+import {HttpClientModule} from "@angular/common/http";//using this module our front App will be able to send http request
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +18,8 @@ import { NotFoundComponent } from './layouts/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule, // Import the HTTP client module
   ],
   providers: [],
   bootstrap: [AppComponent]

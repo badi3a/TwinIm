@@ -6,6 +6,8 @@ import { UserComponent } from './user.component';
 import { RegisterComponent } from './register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { LoginComponent } from './login/login.component';
+import {HttpClientModule} from "@angular/common/http";
+import {UserService} from "./services/user.service";
 @NgModule({
   declarations: [
     UserComponent,
@@ -15,7 +17,9 @@ import { LoginComponent } from './login/login.component';
   imports: [
     CommonModule,
     UserRoutingModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
+  providers: [UserService]
 })
 export class UserModule { }

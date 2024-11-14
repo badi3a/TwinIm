@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Announcement} from "../../../core/models/announcement";
+import {User} from "../../../core/models/User";
+import {UserService} from "../services/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -10,6 +13,8 @@ import {Announcement} from "../../../core/models/announcement";
 export class RegisterComponent implements OnInit {
   // FormGroup: class that match the form tag in the Template && is a collection of inputs
      formRegister: FormGroup;
+     user:User = new User();
+     constructor(private userService: UserService, private router: Router) {}
      ngOnInit() {
        this.formRegister= new FormGroup(
          //FormControl: class that match an input in the form
@@ -42,6 +47,10 @@ export class RegisterComponent implements OnInit {
       }
      save(){
        //backend
+       this.user = this.formRegister.getRawValue();
+       this.userService.addUser(this.user).subscribe(
+         (data:User)=>{this.router.navigateByUrl('user/profile/${data.id}');}
+       )
        //get the set of value of each input in the form
         console.log(this.formRegister.getRawValue())
      }
