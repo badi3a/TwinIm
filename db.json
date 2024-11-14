@@ -1,17 +1,13 @@
 {
-  "users": [
+  "announcements": [
     {
-      "firstName": "Badiaa",
-      "lastName": "Bouhdid",
-      "address": {
-        "street": "eeeee",
-        "city": "eeeeeeee",
-        "zipCode": "20134"
-      },
-      "phoneNumbers": [
-        "98123456"
-      ],
+      "title": "fake title",
       "id": 1
+    },
+    {
+      "title": "test api",
+      "id": 2
     }
-  ]
+  ],
+  "users": []
 }
