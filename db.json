@@ -1,4 +1,13 @@
 {
-  "announcements": [],
+  "announcements": [
+    {
+      "title": "fake title",
+      "id": 1
+    },
+    {
+      "title": "test api",
+      "id": 2
+    }
+  ],
   "users": []
 }

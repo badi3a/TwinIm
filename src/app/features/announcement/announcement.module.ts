@@ -7,12 +7,14 @@ import { FormComponent } from './form/form.component';
 import {FormsModule} from "@angular/forms";
 import {AnnouncementService} from "./services/announcement.service";
 import {HttpClientModule} from "@angular/common/http";
+import { ListComponent } from './list/list.component';
 
 
 @NgModule({
   declarations: [
     AnnouncementComponent,
-    FormComponent
+    FormComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,
