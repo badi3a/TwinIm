@@ -19,7 +19,8 @@ import {HttpClientModule} from "@angular/common/http";//using this module our fr
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule, // Import the HTTP client module
+    HttpClientModule // Import the HTTP client module
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

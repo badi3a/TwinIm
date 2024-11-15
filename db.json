@@ -1,17 +1,62 @@
 {
-  "users": [
+  "announcement": [
     {
-      "firstName": "Badiaa",
-      "lastName": "Bouhdid",
-      "address": {
-        "street": "eeeee",
-        "city": "eeeeeeee",
-        "zipCode": "20134"
-      },
-      "phoneNumbers": [
-        "98123456"
-      ],
-      "id": 1
+      "id": 1,
+      "title": "Un lit",
+      "address": "ariana soghra",
+      "category": "lit ",
+      "price": 100,
+      "picture": "https://static.leenbakker.be/products/380x380/12301515.jpg",
+      "datePublication": "2024-04-20",
+      "nbrLike":0 ,
+      "description": "un lit en bois",
+      "status": "disponible",
+      "isLiked": false
+      
+    },
+    { "id": 2,
+    "title": "Chambre",
+    "address": "Ghazela",
+    "category": "chambre ",
+    "price": 300,
+    "picture": "https://www.ctendance.fr/wp-content/uploads/2020/04/Petite-chambre-deux-ados-Deavita.fr_.jpg",
+    "datePublication": "2024-04-20",
+    "nbrLike":0,
+    "description": "Une chambre à 2",
+    "surface": 150,
+    "status": "disponible",
+    "isLiked": false
+    },
+    
+    {
+     "id": 3,
+    "title": "appartement",
+    "address": "Ghazela",
+    "category": "appartement ",
+    "price": 550,
+    "picture": "https://al-mindhar.com/wp-content/uploads/2023/10/1-6.jpeg",
+    "datePublication": "2024-04-20",
+    "nbrLike":1,
+    "description": "appartement s+2 non meublé",
+    "surface": 220,
+    "status": "disponible",
+    "isLiked": false
+    },
+    {
+      "id": 4,
+      "title": "chambre",
+      "address": "ariana",
+      "category": "chambre",
+      "price": 250,
+      "picture": "https://www.style-led.com/cdn/shop/articles/ado_chambre_rgb.png?v=1701426730",
+      "datePublication": "2024-04-20",
+      "nbrLike":2,
+      "description": "indiv",
+      "surface": 100,
+      "status": "disponible",
+      "roomsNumber": 25,
+      "isLiked": false
     }
-  ]
+  ],
+  "users": []
 }
