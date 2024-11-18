@@ -5,10 +5,12 @@ export class Announcement{
   category:string;
   price:number;
   //pictures:Array<string>;
+  nbrLike: number;
   picture:string;
   datePublication:Date;
   description:string;
   surface:number;
   status:string;
   roomsNumber:number;
+  isLiked : boolean;
 }

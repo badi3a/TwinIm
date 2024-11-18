@@ -1,7 +1,11 @@
+import { Router } from '@angular/router';
+import { AnnoucementService } from './../services/annoucement.service';
 import {Component, OnInit} from '@angular/core';
 import {Announcement} from "../../../core/models/announcement";
+
 import {Router} from "@angular/router";
 import {AnnouncementService} from "../services/announcement.service";
+
 
 @Component({
   selector: 'app-form',
@@ -10,8 +14,8 @@ import {AnnouncementService} from "../services/announcement.service";
 })
 export class FormComponent implements OnInit {
    announcement:Announcement;
-   constructor(private announcementService:AnnouncementService,
-               private router:Router ) { }
+   constructor(private AnnoucementService: AnnoucementService , private Router:Router ) { }
+
    ngOnInit() {
      this.announcement = new Announcement();
    }
@@ -22,9 +26,12 @@ export class FormComponent implements OnInit {
        }
      )
      //insert object into list
-  //  this.announcementService.list.push(this.announcement);
-  //  console.log(this.announcementService.list)
-
-
+    //this.announcementService.list.push(this.announcement);
+    //console.log(this.announcementService.list)
+    this.AnnoucementService.addannouncement(this.announcement).subscribe(
+        () : void =>{
+          this.Router.navigateByUrl("/announcement/list");
+        }
+    )
    }
 }
