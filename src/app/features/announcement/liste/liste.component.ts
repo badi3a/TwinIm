@@ -1,6 +1,7 @@
-import { AnnoucementService } from './../services/annoucement.service';
+
 import { Component, OnInit } from '@angular/core';
 import { Announcement } from 'src/app/core/models/announcement';
+import {AnnouncementService} from "../services/announcement.service";
 
 @Component({
   selector: 'app-liste',
@@ -10,11 +11,11 @@ import { Announcement } from 'src/app/core/models/announcement';
 export class ListeComponent implements OnInit {
 
   list: Announcement[];
-  constructor (private AnnoucementService:AnnoucementService){}
+  constructor (private announcementService:AnnouncementService){}
 
 ngOnInit(): void {
 
-  this.AnnoucementService.getallannouncement().subscribe(
+  this.announcementService.getAllAnnouncements().subscribe(
     (data:Announcement[]) : void =>{this.list=data;
      console.log(this.list)
 
@@ -22,7 +23,7 @@ ngOnInit(): void {
 
     },
   )
-    
+
 }
 
 addLike(a: any): void {

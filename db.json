@@ -1,5 +1,5 @@
 {
-  "announcement": [
+  "announcements": [
     {
       "id": 1,
       "title": "Un lit",
@@ -12,7 +12,7 @@
       "description": "un lit en bois",
       "status": "disponible",
       "isLiked": false
-      
+
     },
     { "id": 2,
     "title": "Chambre",
@@ -27,7 +27,7 @@
     "status": "disponible",
     "isLiked": false
     },
-    
+
     {
      "id": 3,
     "title": "appartement",
@@ -55,7 +55,7 @@
       "surface": 100,
       "status": "disponible",
       "roomsNumber": 25,
-      "isLiked": false
+      "isLiked": false}
   ],
   "users": []
 }

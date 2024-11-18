@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PipepricePipe } from './pipe/pipeprice.pipe';
+import { PipepricePipe } from './pipes/pipeprice.pipe';
 import { pipe } from 'rxjs';
-import { PipesurfacePipe } from './pipe/pipesurface.pipe';
+import { PipesurfacePipe } from './pipes/pipesurface.pipe';
 
 
 
