@@ -17,6 +17,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     AnnouncementComponent,
     FormComponent,
     ListeComponent
+
   ],
 
   providers: [AnnoucementService  ],
@@ -30,5 +31,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     SharedModule,
     HttpClientModule  // Import the HTTP client module une atre fois dans cette classe 
   ]
+  ,
+  providers:[AnnouncementService]
+
 })
 export class AnnouncementModule { }

@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnnouncementComponent } from './announcement.component';
 import {FormComponent} from "./form/form.component";
+
 import { ListeComponent } from './liste/liste.component';
+
 
 const routes: Routes = [
   { path: '', component: AnnouncementComponent },
