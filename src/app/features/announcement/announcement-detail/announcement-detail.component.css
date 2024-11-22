@@ -58,7 +58,7 @@ img {
 .photo-main {
     border-radius: 6px 6px 0 0;
     background-color: #e8391e;
-    background: radial-gradient(#9ef8da, #61d37d);
+    background: radial-gradient(#9ef8da, #36563e);
 
     .controls {
         display: flex;
