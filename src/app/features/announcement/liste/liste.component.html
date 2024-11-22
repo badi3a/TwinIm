@@ -1,0 +1,32 @@
+<h2>List of announcements</h2>
+
+<div class="card-container">
+  <div *ngFor="let a of list" class="card">
+    <!-- Wrap the entire card with a routerLink -->
+    <a >
+      <img [src]="a.picture" alt="image" class="card-image" [routerLink]="['/announcement/details', a.id]">
+      <div class="card-body">
+        <h2 class="card-title" [routerLink]="['/announcement/details', a.id]" >{{ a.title }}</h2>
+        <p class="card-category">{{ a.category }} - {{ a.address }}</p>
+        <p class="card-description" [routerLink]="['/announcement/details', a.id]" >{{ a.description }}</p>
+        <div class="card-details">
+          <div class="card-price" [routerLink]="['/announcement/details', a.id]" >{{ a.price | pipeprice }}</div>
+          <div class="card-status" [ngClass]="{ 'available': a.status === 'disponible', 'sold': a.status === 'vendu' }">
+            {{ a.status }}
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span>Rooms: {{ a.roomsNumber }}</span>
+          <span>Date: {{ a.datePublication }}</span>
+          <span>Surface: {{ a.surface | pipesurface }}</span>
+
+          <div class="like-button" (click)="addLike(a)" [ngClass]="{ 'liked': a.isLiked }">
+            <i class="fa fa-heart"></i>
+            <span>{{ a.nbrLike }}</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
