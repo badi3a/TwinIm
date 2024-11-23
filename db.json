@@ -55,6 +55,18 @@
       "status": "disponible",
       "roomsNumber": 25,
       "isLiked": false
+    },
+    {
+      "id": "c60f",
+      "title": "daz",
+      "address": "azdazdadzadazd",
+      "category": "azd",
+      "price": 55000,
+      "description": "azdazdaz",
+      "surface": 200,
+      "status": "azaz",
+      "roomsNumber": 5454,
+      "datePublication": "2024-11-23T14:27:58.437Z"
     }
   ],
   "users": [
