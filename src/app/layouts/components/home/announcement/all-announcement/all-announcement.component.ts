@@ -11,6 +11,7 @@ export class AllAnnouncementComponent implements OnInit {
 
   list: Announcement[];
   nbRooms : number = 0 ;
+  searchQuery: string = 'un';
   constructor (private announcementService:AnnouncementService){}
 
   ngOnInit(): void {
@@ -20,6 +21,15 @@ export class AllAnnouncementComponent implements OnInit {
       },
     )
   }
-
+  search() {
+    const query = this.searchQuery.toLowerCase().trim();
+    this.list = this.list.filter(
+      announcement =>
+        announcement.title.toLowerCase().includes(query) ||
+        announcement.category.toLowerCase().includes(query) ||
+        announcement.address.toLowerCase().includes(query)
+    );
+    this.nbRooms = this.list.length;
+  }
 
 }
