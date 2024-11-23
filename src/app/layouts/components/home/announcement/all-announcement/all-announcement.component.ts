@@ -1,4 +1,4 @@
-import { Component , OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AnnouncementService } from 'src/app/features/announcement/services/announcement.service';
 import { Announcement } from 'src/app/core/models/announcement';
 
@@ -9,50 +9,51 @@ import { Announcement } from 'src/app/core/models/announcement';
 })
 export class AllAnnouncementComponent implements OnInit {
 
-  list: Announcement[];
-  nbRooms : number = 0 ;
-  searchQuery: string ;
-  surfaceQuery : number = 150 ;
-  constructor (private announcementService:AnnouncementService){}
+  list: Announcement[] = [];
+  originalList: Announcement[] = [];
+  nbRooms: number = 0;
+  searchQuery: string = '';
+  isAvailable: boolean = false;
 
-  ngOnInit(): void {
+  constructor(private announcementService: AnnouncementService) {}
+
+  ngOnInit() {
     this.announcementService.getAllAnnouncements().subscribe(
-      (data:Announcement[]) : void =>{this.list=data;
-       this.nbRooms = this.list.length;
-      },
-    )
-  }
-  search() {
-    const query = this.searchQuery.toLowerCase().trim(); // make searchQuery lower case and use trim to remove space
-    this.list = this.list.filter(announcement =>
-      (announcement.title.toLowerCase().includes(query) ||  //if title contain query or not
-      announcement.category.toLowerCase().includes(query) ||
-      announcement.address.toLowerCase().includes(query))
+      (data: Announcement[]) => {
+        this.list = data;
+        this.originalList = [...data];
+        this.nbRooms = this.list.length;
+      }
     );
-    this.nbRooms = this.list.length;
-    console.log(this.searchQuery)
   }
 
+  search() {
+    const query = this.searchQuery.toLowerCase().trim();
 
-  sortByPrice(order: String): void {
+    this.list = this.originalList.filter((announcement) =>
+      (query ?
+        announcement.title.toLowerCase().includes(query) ||
+        announcement.category.toLowerCase().includes(query) ||
+        announcement.address.toLowerCase().includes(query)
+        : true) &&
+      (this.isAvailable ? announcement.status === 'disponible' : true)
+    );
+
+    this.nbRooms = this.list.length;
+  }
+
+  sortByPrice(order: string) {
     if (order) {
       this.list = this.list.sort((a, b) => {
-        if (order === 'asc') {
-          return a.price - b.price;
-        } else if (order === 'desc') {
-          return b.price - a.price;
-        }
-        return 0;   //exit
+        return order === 'asc' ? a.price - b.price : b.price - a.price;
       });
     }
   }
 
-  searchByStatus() {
-
-  }
-
   resetSearch() {
-
+    this.searchQuery = '';
+    this.isAvailable = false;
+    this.list = [...this.originalList];
+    this.nbRooms = this.list.length;
   }
-
 }
