@@ -8,7 +8,8 @@
   <div class="list-announcement">
     <div>
       <h3>Rome:<b> {{nbRooms}}</b>  properties found</h3>
-      <select (change)="sortByPrice($event)">
+      <select #order (change)="sortByPrice(order.value)">
+        <option default >Sort By Price :</option>
         <option value="asc">Price: Low to High</option>
         <option value="desc">Price: High to Low</option>
       </select>

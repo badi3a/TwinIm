@@ -11,7 +11,7 @@ export class AllAnnouncementComponent implements OnInit {
 
   list: Announcement[];
   nbRooms : number = 0 ;
-  searchQuery: string = "" ;
+  searchQuery: string ;
   surfaceQuery : number = 150 ;
   constructor (private announcementService:AnnouncementService){}
 
@@ -30,13 +30,11 @@ export class AllAnnouncementComponent implements OnInit {
       announcement.address.toLowerCase().includes(query))
     );
     this.nbRooms = this.list.length;
+    console.log(this.searchQuery)
   }
 
 
-  sortByPrice(event: Event): void {
-    const target = event.target as HTMLSelectElement; // get element from html
-    // console.log(target.value)
-    const order = target?.value; //check if select a value --> get a value from target if desc or asc
+  sortByPrice(order: String): void {
     if (order) {
       this.list = this.list.sort((a, b) => {
         if (order === 'asc') {
@@ -50,6 +48,10 @@ export class AllAnnouncementComponent implements OnInit {
   }
 
   searchByStatus() {
+
+  }
+
+  resetSearch() {
 
   }
 
