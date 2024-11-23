@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component , Input } from '@angular/core';
+import { Announcement } from 'src/app/core/models/announcement';
 
 @Component({
   selector: 'app-card-announcement',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./card-announcement.component.css']
 })
 export class CardAnnouncementComponent {
+
+  @Input() announcement: Announcement;
 
 }

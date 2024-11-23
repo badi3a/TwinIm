@@ -10,15 +10,16 @@ import { Announcement } from 'src/app/core/models/announcement';
 export class AllAnnouncementComponent implements OnInit {
 
   list: Announcement[];
+  nbRooms : number = 0 ;
   constructor (private announcementService:AnnouncementService){}
 
   ngOnInit(): void {
     this.announcementService.getAllAnnouncements().subscribe(
       (data:Announcement[]) : void =>{this.list=data;
-       console.log(this.list)
-
+       this.nbRooms = this.list.length;
       },
     )
   }
+
 
 }

@@ -1,75 +1,35 @@
-.all-product {
-  margin: 70px auto;
-  display: flex;
-  min-height: 300px;
-  width: 100%;
-  flex-wrap: wrap ;
+.all-announcement {
+  margin : 140px auto ;
 }
 
-
-.all-product .filter {
-  flex-basis: 25%;
-  height: auto;
+.filter-container {
+  flex-basis: 20%;
+  margin: 40px;
+  height: 300px;
   padding: 12px;
   border-radius: 12px;
-  margin: 70px 0px 0px 0px;
-  max-height:40vh;
 }
 
-.all-product .products {
+.list-announcement {
   flex-basis: 70%;
-  border-radius: 12px;
-  padding: 12px;
-  margin: 5px 0px 0px 40px;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
 }
 
-@media screen and (max-width: 600px) {
-  .all-product .filter {
-    flex-basis: 100%;
-    margin: auto;
 
+@media only screen and (max-width: 600px) {
+  .filter-container {
+    flex-basis: 100%;
   }
-  .all-product .products {
-    flex-basis: 100%;
-    margin: auto;
 
+  .list-announcement {
+    flex-basis: 100%;
   }
 }
+@media only screen and (max-width: 1024px) {
+  .filter-container {
+    flex-basis: 100%;
+  }
 
-.announcement {
-  flex-basis: 100%;
+  .list-announcement {
+    flex-basis: 100%;
+  }
 }
-
-.announcement img {
-  width: 100%;
-  height: 100%;
-  transition: 0.3s;
-  cursor: pointer;
-  border-radius: 12px;
-}
-
-.announcement:hover img {
-  transform: scale(1.01);
-}
-
-.description {
-  padding: 12px;
-}
-
-.announcement-body h5 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  transition: 0.3s;
-  cursor: pointer;
-  padding: 5px;
-}
-
-
-
-
-
-
-/* No ChatGpt */
