@@ -1,0 +1,74 @@
+<!--/ Nav Start /-->
+<nav class="navbar navbar-default navbar-trans navbar-expand-lg">
+  <div class="container">
+    <!-- Toggler Button for Small Screens -->
+    <button
+      class="navbar-toggler collapsed"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarDefault"
+      aria-controls="navbarDefault"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Brand Name -->
+    <a class="navbar-brand text-brand logo" routerLink="/home" aria-label="Go to homepage">
+      Twin<strong class="text-primary">Im</strong>
+    </a>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse justify-content-between" id="navbarDefault">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active" aria-label="Go to Home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/announcement/list" routerLinkActive="active" aria-label="Go to Announcement">Announcement</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/announcement/new" routerLinkActive="active" aria-label="Go to Hello">New Announcement</a>
+        </li>
+      </ul>
+
+      <!-- Search Box (now part of collapsible menu) -->
+      <div class="search-box">
+        <button class="btn-search" aria-label="Search">
+          <i class="fa fa-search"></i>
+        </button>
+        <input
+          type="text"
+          class="input-search nav-search"
+          placeholder="Type to Search..."
+          aria-label="Search input"
+        />
+      </div>
+
+      <!-- Auth Buttons (now part of collapsible menu) -->
+      <div class="auth-buttons d-flex gap-3 justify-content-center align-items-center">
+        <button
+          class="btn btn-login px-4 py-2"
+          routerLink="/user/login"
+          aria-label="Login to your account"
+        >
+          <i class="fa fa-sign-in me-2" aria-hidden="true"></i>
+          <span>Login</span>
+        </button>
+
+        <button
+          class="btn btn-register px-4 py-2"
+          routerLink="/user/register"
+          aria-label="Create a new account"
+        >
+          <i class="fa fa-user-plus me-2" aria-hidden="true"></i>
+          <span>Register</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<!--/ Nav End /-->
