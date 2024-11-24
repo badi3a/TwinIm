@@ -1,0 +1,97 @@
+<div *ngIf="announcement" class="announcement-detail">
+    <h2 class="category-title">{{ announcement.category }}</h2>
+    <img 
+        [src]="announcement.picture" 
+        alt="{{ announcement.category }}" 
+        class="announcement-image"
+    >
+    
+    <div class="announcement-info">
+      <p><strong>Title :</strong> {{ announcement.title }} </p>
+        <p><strong>Prix :</strong> {{ announcement.price }} €</p>
+        <p><strong>Date de publication :</strong> {{ announcement.datePublication | date }}</p>
+        <p><strong>Nombre de likes :</strong> {{ announcement.nbrLike }}</p>
+        <p><strong>Description :</strong> {{ announcement.description }}</p>
+    </div>
+  
+    <div class="buttons">
+        <button class="btn btn-danger" (click)="deleteAnnouncement()">Delete</button>
+        <button class="btn btn-primary" (click)="updateAnnouncement()">Modifier</button>
+        <button class="btn btn-secondary" routerLink="/announcements/list">Back</button>
+    </div>
+</div>
+
+<style>
+  .announcement-detail {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+  }
+
+  .category-title {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .announcement-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .announcement-info {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .announcement-info p {
+    margin: 8px 0;
+  }
+
+  .announcement-info strong {
+    color: #222;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .btn-danger {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+  }
+
+  .btn-danger:hover {
+    background-color: #c0392b;
+  }
+
+  .btn-secondary {
+    background-color: #7f8c8d;
+    color: #fff;
+    border: none;
+  }
+
+  .btn-secondary:hover {
+    background-color: #95a5a6;
+  }
+</style>

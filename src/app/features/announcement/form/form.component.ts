@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 import {AnnouncementService} from "../services/announcement.service";
 import {Announcement} from "../../../core/models/announcement";
@@ -10,23 +10,42 @@ import {Announcement} from "../../../core/models/announcement";
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  
    announcement:Announcement;
    imagePreview: string | ArrayBuffer | null = null;
-
-   constructor(private announcementService: AnnouncementService , private router:Router ) { }
-
+   isEditMode: boolean = false;
+   constructor(private announcementService: AnnouncementService , private router:Router ,  private route: ActivatedRoute) { }
+  
+   
+   
    ngOnInit() {
      this.announcement = new Announcement();
+     const id = this.route.snapshot.paramMap.get('id'); // Check 'id' 
+     if (id) {
+       this.isEditMode = true; 
+       this.loadAnnouncement(id);
+     }
    }
+   loadAnnouncement(id: string) {
+    this.announcementService.getAnnouncementbyID(id).subscribe((data: Announcement) => {
+      this.announcement = data;
+      this.imagePreview = this.announcement.picture; // get current image
+    });
+  }
   save() {
     this.announcement.datePublication=new Date();
-    this.savePicture();
-
-    this.announcementService.addAnnouncement(this.announcement).subscribe(
-      () => {
+    if (this.isEditMode) {
+      // Update announcement
+      this.announcementService.updateAnnouncement(this.announcement.id, this.announcement).subscribe(() => {
         this.router.navigateByUrl("announcement/list");
-      }
-    )
+      });
+    } else {
+      // Add new announcement
+      this.savePicture();
+      this.announcementService.addAnnouncement(this.announcement).subscribe(() => {
+        this.router.navigateByUrl("announcement/list");
+      });
+    }
   }
 
   onImageSelect(event: any) {

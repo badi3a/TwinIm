@@ -1,4 +1,5 @@
 <div class="container">
+  <h2>{{ isEditMode ? 'Edit Announcement' : 'Add Announcement' }}</h2>
   <form #f="ngForm">
 
     <div class="form-group">
@@ -92,9 +93,15 @@
     
     
 
-    <button class="btn btn-success" (click)="save()" [disabled]="f.invalid" >save</button>
-    <button type="submit"></button>
-    &nbsp;
+    <button 
+    class="btn btn-success" 
+    (click)="save()" 
+    [disabled]="f.invalid">
+    {{ isEditMode ? 'Update' : 'Save' }}
+  </button>
+  <button type="submit"></button>
+  &nbsp;
+  
     <button type="reset" class="btn btn-warning">reset</button>
   </form>
 </div>

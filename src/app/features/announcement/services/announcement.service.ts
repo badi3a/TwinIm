@@ -16,12 +16,24 @@ export class AnnouncementService {
   addAnnouncement(objet:Announcement):Observable<Announcement>{
     return this.http.post<Announcement>(this.urlApi,objet)
   }
-  //delete
+
+  //getAnnouncementbyID
+  getAnnouncementbyID(id:any):Observable<Announcement>{
+    return this.http.get<Announcement>(`${this.urlApi}${id}`)
+  }
+ //delete
+ deleteAnnouncement(id: number): Observable<void> {
+  return this.http.delete<void>(`${this.urlApi}${id}`);
+}
+updateAnnouncement(id: number, updatedAnnouncement: Announcement): Observable<Announcement> {
+  return this.http.put<Announcement>(`${this.urlApi}${id}`, updatedAnnouncement);
+}
+
   //search
   //getbyId
   //update
 
-  getAllAnnou(){
+  // getAllAnnou(){
 
-  }
+  // }
 }
