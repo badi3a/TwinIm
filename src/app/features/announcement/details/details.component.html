@@ -1,0 +1,21 @@
+<div class="card-container">
+
+<h2> details of annoucement </h2>
+
+
+<div >
+
+    <p> ID : {{announcement.id}} </p>
+    <p> ID : {{announcement.title}} </p>
+    <p> ID : {{announcement.address}} </p>
+    <p> ID : {{announcement.price}} </p>
+    <p> ID : {{announcement.category}} </p>
+    <img [src]="announcement.picture" alt="image" class="card-image">
+
+
+    <button class="btn btn-success" (click)="deleteAnnouncement(announcement.id)">
+        Delete
+      </button>
+
+      
+    </div>

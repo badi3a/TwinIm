@@ -5,7 +5,7 @@ export class Announcement{
   category:string;
   price:number;
   //pictures:Array<string>;
-  nbrLike: number;
+  nbrLike: number =0;
   picture:string;
   datePublication:Date;
   description:string;

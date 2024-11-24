@@ -26,14 +26,34 @@ ngOnInit(): void {
 
 }
 
-addLike(a: any): void {
+addLike(a: Announcement): void {
+  // Basculer l'état de "like"
   a.isLiked = !a.isLiked;
+
+  // Mettre à jour le nombre de likes
   if (a.isLiked) {
     a.nbrLike += 1;
   } else {
     a.nbrLike -= 1;
   }
+
+  // Mettre à jour l'annonce côté serveur
+  this.updateAnnouncement(a.id, a);
 }
+
+// Mettre à jour une annonce sur le serveur
+updateAnnouncement(id: any, announcement: Announcement): void {
+  this.announcementService.updateAnnouncement(id, announcement).subscribe(
+    () => {
+      console.log('Annonce mise à jour avec succès:', announcement);
+    },
+    (error) => {
+      console.error('Erreur lors de la mise à jour de l\'annonce :', error);
+      alert('Une erreur est survenue lors de la mise à jour.');
+    }
+  );
+}
+
 
 
 

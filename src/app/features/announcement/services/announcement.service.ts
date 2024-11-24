@@ -24,4 +24,28 @@ export class AnnouncementService {
   getAllAnnou(){
 
   }
+
+
+
+  
+
+  getAnnoucementBYID(id: any){
+    return this.http.get<Announcement>(`${this.urlApi}${id}`)
+
+}
+
+deletAnnoucement(id: any): Observable<void> {
+  return this.http.delete<void>(`${this.urlApi}${id}`);
+}
+
+
+
+updateAnnouncement(id: string, announcement: Announcement): Observable<void> {
+  return this.http.put<void>(`${this.urlApi}${id}`, announcement);
+}
+
+
+
+
+
 }
