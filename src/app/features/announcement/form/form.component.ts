@@ -14,6 +14,7 @@ export class FormComponent implements OnInit {
    announcement:Announcement;
    imagePreview: string | ArrayBuffer | null = null;
    isEditMode: boolean = false;
+   categories: string[] = ['Residential', 'Commercial', 'Land', 'Luxury'];
    constructor(private announcementService: AnnouncementService , private router:Router ,  private route: ActivatedRoute) { }
   
    

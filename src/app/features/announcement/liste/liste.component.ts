@@ -19,8 +19,6 @@ ngOnInit(): void {
     (data:Announcement[]) : void =>{this.list=data;
     console.log(this.list)
 
-
-
     },
   )
 
