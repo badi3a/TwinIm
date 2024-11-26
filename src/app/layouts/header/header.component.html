@@ -37,15 +37,15 @@
 
       <!-- Search Box (now part of collapsible menu) -->
       <div class="search-box">
-        <button class="btn-search" aria-label="Search">
+        <button class="btn-search" (click)="onSearch()" aria-label="Search">
           <i class="fa fa-search"></i>
         </button>
         <input
           type="text"
           class="input-search nav-search"
           placeholder="Type to Search..."
-          aria-label="Search input"
-        />
+          [value]="searchQuery"
+          (input)="searchQuery = $any($event.target).value" (keyup.enter)="onSearch()"aria-label="Search input"/>
       </div>
 
       <!-- Auth Buttons (now part of collapsible menu) -->
