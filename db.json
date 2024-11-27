@@ -1,7 +1,7 @@
 {
   "announcements": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Un lit",
       "address": "ariana soghra",
       "category": "lit ",
@@ -12,6 +12,7 @@
       "description": "un lit en bois",
       "status": "disponible",
       "isLiked": false
+<<<<<<< HEAD
     },
     {
       "id": 2,
@@ -40,9 +41,39 @@
       "surface": 220,
       "status": "disponible",
       "isLiked": false
+=======
+>>>>>>> f19bd3a0b9ec4efd7e79bef3292359dff3b42ae1
     },
     {
-      "id": 4,
+      "id": "2",
+      "title": "Chambre",
+      "address": "Ghazela",
+      "category": "chambre ",
+      "price": 300,
+      "picture": "https://www.ctendance.fr/wp-content/uploads/2020/04/Petite-chambre-deux-ados-Deavita.fr_.jpg",
+      "datePublication": "2024-04-20",
+      "nbrLike": 0,
+      "description": "Une chambre à 2",
+      "surface": 150,
+      "status": "disponible",
+      "isLiked": false
+    },
+    {
+      "id": "3",
+      "title": "appartement",
+      "address": "Ghazela",
+      "category": "appartement ",
+      "price": 550,
+      "picture": "https://al-mindhar.com/wp-content/uploads/2023/10/1-6.jpeg",
+      "datePublication": "2024-04-20",
+      "nbrLike": 1,
+      "description": "appartement s+2 non meublé",
+      "surface": 220,
+      "status": "disponible",
+      "isLiked": false
+    },
+    {
+      "id": "4",
       "title": "chambre",
       "address": "ariana",
       "category": "chambre",
@@ -57,6 +88,7 @@
       "isLiked": false
     },
     {
+<<<<<<< HEAD
       "title": "Symfony",
       "address": "Ariana soghera",
       "description": "test ",
@@ -96,4 +128,48 @@
     }
   ],
   "users": []
+=======
+      "id": "c60f",
+      "title": "daz",
+      "address": "azdazdadzadazd",
+      "category": "azd",
+      "price": 55000,
+      "description": "azdazdaz",
+      "surface": 200,
+      "status": "azaz",
+      "roomsNumber": 5454,
+      "datePublication": "2024-11-23T14:27:58.437Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "9de1",
+      "firstName": "",
+      "lastName": "",
+      "address": {
+        "street": "",
+        "city": "",
+        "zipCode": ""
+      },
+      "phoneNumbers": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "38eb",
+      "firstName": "",
+      "lastName": "",
+      "address": {
+        "street": "",
+        "city": "",
+        "zipCode": ""
+      },
+      "phoneNumbers": [
+        "",
+        ""
+      ]
+    }
+  ]
+>>>>>>> f19bd3a0b9ec4efd7e79bef3292359dff3b42ae1
 }

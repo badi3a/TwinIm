@@ -4,7 +4,6 @@ export class Announcement{
   address:string;
   category:string;
   price:number;
-  //pictures:Array<string>;
   nbrLike: number;
   picture:string;
   datePublication:Date;
