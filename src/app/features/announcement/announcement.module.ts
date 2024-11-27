@@ -10,13 +10,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import {AnnouncementService} from "./services/announcement.service";
 import { AnnouncementDetailComponent } from './announcement-detail/announcement-detail.component';
 import { AnnouncementSearchComponent } from './announcement-search/announcement-search.component';
+import { CardAnnouncementComponent } from './card-announcement/card-announcement.component';
 @NgModule({
   declarations: [
     AnnouncementComponent,
     FormComponent,
     ListeComponent,
     AnnouncementDetailComponent,
-    AnnouncementSearchComponent
+    AnnouncementSearchComponent,
+    CardAnnouncementComponent
   ],
   imports: [
     CommonModule,
