@@ -8,13 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListeComponent } from './liste/liste.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import {AnnouncementService} from "./services/announcement.service";
-import { DetailAnnouncementComponent } from './detail-announcement/detail-announcement.component';
+import { DetailsComponent } from './details/details.component';
 @NgModule({
   declarations: [
     AnnouncementComponent,
     FormComponent,
     ListeComponent,
-    DetailAnnouncementComponent
+    DetailsComponent
   ],
   imports: [
     CommonModule,
