@@ -16,6 +16,11 @@ export class AnnouncementService {
   addAnnouncement(objet:Announcement):Observable<Announcement>{
     return this.http.post<Announcement>(this.urlApi,objet)
   }
+  //getAnnouncement By id
+  getAnnouncementById(id:any){
+    return this.http.get<Announcement>(`${this.urlApi}${id}`)
+  }
+
   //delete
   //search
   //getbyId

@@ -19,14 +19,13 @@ ngOnInit(): void {
     (data:Announcement[]) : void =>{this.list=data;
      console.log(this.list)
 
-
-
     },
   )
 
 }
 
 addLike(a: any): void {
+    //service =>web Service put annonce json-server
   a.isLiked = !a.isLiked;
   if (a.isLiked) {
     a.nbrLike += 1;
