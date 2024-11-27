@@ -20,6 +20,8 @@
     "@angular/router": "^16.2.0",
     "bootstrap": "^5.3.3",
     "font-awesome": "^4.7.0",
+    "json": "^11.0.0",
+    "json-serve": "^0.1.0",
     "json-server": "^1.0.0-beta.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
