@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { Announcement } from 'src/app/core/models/announcement';
 import {AnnouncementService} from "../services/announcement.service";
@@ -11,6 +10,7 @@ import {AnnouncementService} from "../services/announcement.service";
 export class ListeComponent implements OnInit {
 
   list: Announcement[];
+  page: number = 1;
   constructor (private announcementService:AnnouncementService){}
 
 ngOnInit(): void {

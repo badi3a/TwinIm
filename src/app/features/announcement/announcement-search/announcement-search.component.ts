@@ -12,6 +12,7 @@ export class AnnouncementSearchComponent implements OnInit {
   searchQuery: string = '';
   searchResults: Announcement[] = [];
   filteredResults: Announcement[] = [];
+  page: number = 1;
 
   filters = {
     minPrice: null as number | null,

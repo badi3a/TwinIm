@@ -11,6 +11,7 @@ import {AnnouncementService} from "./services/announcement.service";
 import { AnnouncementDetailComponent } from './announcement-detail/announcement-detail.component';
 import { AnnouncementSearchComponent } from './announcement-search/announcement-search.component';
 import { CardAnnouncementComponent } from './card-announcement/card-announcement.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AnnouncementComponent,
@@ -25,7 +26,8 @@ import { CardAnnouncementComponent } from './card-announcement/card-announcement
     AnnouncementRoutingModule,
     FormsModule,
     SharedModule,
-    HttpClientModule  // Import the HTTP client module une atre fois dans cette classe
+    HttpClientModule,
+    NgxPaginationModule
   ]
   ,
   providers:[AnnouncementService]

@@ -69,11 +69,13 @@
 
       <div class="card-container">
         <app-card-announcement 
-          *ngFor="let a of filteredResults" 
+          *ngFor="let a of filteredResults | paginate: { itemsPerPage: 15, currentPage: page }" 
           [announcement]="a"
           (likeClicked)="addLike($event)">
         </app-card-announcement>
       </div>
+
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
   </div>
 </div>
