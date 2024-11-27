@@ -4,14 +4,14 @@ import { AnnouncementComponent } from './announcement.component';
 import {FormComponent} from "./form/form.component";
 
 import { ListeComponent } from './liste/liste.component';
-import {DetailAnnouncementComponent} from "./detail-announcement/detail-announcement.component";
+import { DetailsComponent } from './details/details.component';
 
 
 const routes: Routes = [
   { path: '', component: AnnouncementComponent },
   {path:'new', component:FormComponent},
   {path: 'list', component:ListeComponent},
-  {path:'detail/:id', component:DetailAnnouncementComponent}
+  {path: 'details/:id' ,component:DetailsComponent}
 ];
 
 @NgModule({

@@ -3,8 +3,11 @@
 
   <div class="card-container">
     <div *ngFor="let a of list" class="card">
-      <a [routerLink]="['/announcement/detail/',a.id]">
+      <a [routerLink]="['/announcement/details/' ,a.id]">
+
+
         <img [src]="a.picture" alt="image" class="card-image">
+
       </a>
       <div class="card-body">
         <h2 class="card-title">{{a.title}}</h2>
