@@ -9,12 +9,14 @@ import { ListeComponent } from './liste/liste.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import {AnnouncementService} from "./services/announcement.service";
 import { DetailsComponent } from './details/details.component';
+import { CardComponent } from './card/card.component';
 @NgModule({
   declarations: [
     AnnouncementComponent,
     FormComponent,
     ListeComponent,
-    DetailsComponent
+    DetailsComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,

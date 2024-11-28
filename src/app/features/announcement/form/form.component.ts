@@ -1,8 +1,7 @@
 import { Router } from '@angular/router';
-import {Component, OnInit} from '@angular/core';
-import {AnnouncementService} from "../services/announcement.service";
-import {Announcement} from "../../../core/models/announcement";
-
+import { Component, OnInit } from '@angular/core';
+import { AnnouncementService } from "../services/announcement.service";
+import { Announcement } from "../../../core/models/announcement";
 
 @Component({
   selector: 'app-form',
@@ -10,23 +9,30 @@ import {Announcement} from "../../../core/models/announcement";
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-   announcement:Announcement;
-   imagePreview: string | ArrayBuffer | null = null;
+  announcement: Announcement;
+  imagePreview: string | ArrayBuffer | null = null;
 
-   constructor(private announcementService: AnnouncementService , private router:Router ) { }
+  constructor(private announcementService: AnnouncementService, private router: Router) { }
 
-   ngOnInit() {
-     this.announcement = new Announcement();
-   }
+  ngOnInit() {
+    this.announcement = new Announcement();
+    this.announcement.status = 'unavailable'; // Default status
+  }
+
   save() {
-    this.announcement.datePublication=new Date();
+    this.announcement.datePublication = new Date();
     this.savePicture();
 
     this.announcementService.addAnnouncement(this.announcement).subscribe(
       () => {
         this.router.navigateByUrl("announcement/list");
       }
-    )
+    );
+  }
+
+  updateStatus(event: Event): void {
+    const isChecked = (event.target as HTMLInputElement).checked;
+    this.announcement.status = isChecked ? 'available' : 'unavailable';
   }
 
   onImageSelect(event: any) {
@@ -41,8 +47,5 @@ export class FormComponent implements OnInit {
     }
   }
 
-  savePicture()
-  {
-   
-  }
+  savePicture() { }
 }
