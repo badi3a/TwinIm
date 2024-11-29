@@ -1,7 +1,6 @@
-
 import { Component, OnInit } from '@angular/core';
 import { Announcement } from 'src/app/core/models/announcement';
-import {AnnouncementService} from "../services/announcement.service";
+import { AnnouncementService } from "../services/announcement.service";
 
 @Component({
   selector: 'app-liste',
@@ -9,52 +8,82 @@ import {AnnouncementService} from "../services/announcement.service";
   styleUrls: ['./liste.component.css']
 })
 export class ListeComponent implements OnInit {
+  list: Announcement[] = []; // Initialize with empty array
 
-  list: Announcement[];
-  constructor (private announcementService:AnnouncementService){}
+  // New properties for deletion
+  showDeleteModal = false;
+  announcementToDelete: Announcement | null = null;
 
-ngOnInit(): void {
+  constructor(private announcementService: AnnouncementService) {}
 
-  this.announcementService.getAllAnnouncements().subscribe(
-    (data:Announcement[]) : void =>{this.list=data;
-     console.log(this.list)
-
-
-
-    },
-  )
-
-}
-
-addLike(a: Announcement): void {
-  // Basculer l'état de "like"
-  a.isLiked = !a.isLiked;
-
-  // Mettre à jour le nombre de likes
-  if (a.isLiked) {
-    a.nbrLike += 1;
-  } else {
-    a.nbrLike -= 1;
+  ngOnInit(): void {
+    this.loadAnnouncements();
   }
 
-  // Mettre à jour l'annonce côté serveur
-  this.updateAnnouncement(a.id, a);
-}
+  loadAnnouncements(): void {
+    this.announcementService.getAllAnnouncements().subscribe({
+      next: (data: Announcement[]) => {
+        this.list = data;
+        console.log(this.list);
+      },
+      error: (error: Error) => {
+        console.error('Error loading announcements:', error);
+      }
+    });
+  }
 
-// Mettre à jour une annonce sur le serveur
-updateAnnouncement(id: any, announcement: Announcement): void {
-  this.announcementService.updateAnnouncement(id, announcement).subscribe(
-    () => {
-      console.log('Annonce mise à jour avec succès:', announcement);
-    },
-    (error) => {
-      console.error('Erreur lors de la mise à jour de l\'annonce :', error);
-      alert('Une erreur est survenue lors de la mise à jour.');
+  // Method to open delete confirmation modal
+  confirmDelete(announcement: Announcement): void {
+    this.announcementToDelete = announcement;
+    this.showDeleteModal = true;
+  }
+
+  // Method to cancel deletion
+  cancelDelete(): void {
+    this.showDeleteModal = false;
+    this.announcementToDelete = null;
+  }
+
+  // Method to perform deletion
+  deleteAnnouncement(): void {
+    if (this.announcementToDelete && this.announcementToDelete.id) {
+      this.announcementService.deleteAnnouncement(this.announcementToDelete.id).subscribe({
+        next: () => {
+          // Remove the announcement from the list
+          this.list = this.list.filter(a => a.id !== this.announcementToDelete?.id);
+
+          // Close the modal
+          this.showDeleteModal = false;
+          this.announcementToDelete = null;
+
+          // Optional: Show a success message
+          console.log('Announcement deleted successfully');
+        },
+        error: (error: Error) => {
+          console.error('Error deleting announcement:', error);
+          // Optional: Show an error message to the user
+          alert('Failed to delete the announcement');
+        }
+      });
     }
-  );
-}
+  }
 
+  // Existing like methods remain the same
+  addLike(a: Announcement): void {
+    a.isLiked = !a.isLiked;
+    a.nbrLike += a.isLiked ? 1 : -1;
+    this.updateAnnouncement(a.id, a);
+  }
 
-
-
+  updateAnnouncement(id: number | string, announcement: Announcement): void {
+    this.announcementService.updateAnnouncement(id, announcement).subscribe({
+      next: () => {
+        console.log('Announcement updated successfully:', announcement);
+      },
+      error: (error: Error) => {
+        console.error('Error updating announcement:', error);
+        alert('An error occurred while updating the announcement');
+      }
+    });
+  }
 }

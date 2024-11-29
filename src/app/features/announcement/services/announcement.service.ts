@@ -1,56 +1,38 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Announcement} from "../../../core/models/announcement";
-import {Observable} from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { Announcement } from "../../../core/models/announcement";
+import { Observable } from "rxjs";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AnnouncementService {
-   urlApi: string= "http://localhost:3000/announcements/";
-  constructor(private http:HttpClient) { }
-  ///CNX Backend Side
-  //getAnnouncement
-  getAllAnnouncements():Observable<Announcement[]> {
-    return this.http.get<Announcement[]>(this.urlApi)
-  }
-  //addAnnouncement
-  addAnnouncement(objet:Announcement):Observable<Announcement>{
-    return this.http.post<Announcement>(this.urlApi,objet)
-  }
-  //getAnnouncement By id
-  getAnnouncementById(id:any){
-    return this.http.get<Announcement>(`${this.urlApi}${id}`)
+  urlApi: string = "http://localhost:3000/announcements/";
+
+  constructor(private http: HttpClient) { }
+
+  // Get all announcements
+  getAllAnnouncements(): Observable<Announcement[]> {
+    return this.http.get<Announcement[]>(this.urlApi);
   }
 
-  //delete
-  //search
-  //getbyId
-  //update
-
-  getAllAnnou(){
-
+  // Add new announcement
+  addAnnouncement(announcement: Announcement): Observable<Announcement> {
+    return this.http.post<Announcement>(this.urlApi, announcement);
   }
 
+  // Get announcement by ID
+  getAnnouncementById(id: number | string): Observable<Announcement> {
+    return this.http.get<Announcement>(`${this.urlApi}${id}`);
+  }
 
+  // Delete announcement
+  deleteAnnouncement(id: number | string): Observable<void> {
+    return this.http.delete<void>(`${this.urlApi}${id}`);
+  }
 
-  
-
-  getAnnoucementBYID(id: any){
-    return this.http.get<Announcement>(`${this.urlApi}${id}`)
-
-}
-
-deletAnnoucement(id: any): Observable<void> {
-  return this.http.delete<void>(`${this.urlApi}${id}`);
-}
-
-
-
-updateAnnouncement(id: string, announcement: Announcement): Observable<void> {
-  return this.http.put<void>(`${this.urlApi}${id}`, announcement);
-}
-
-
-
-
-
+  // Update announcement
+  updateAnnouncement(id: number | string, announcement: Announcement): Observable<void> {
+    return this.http.put<void>(`${this.urlApi}${id}`, announcement);
+  }
 }
