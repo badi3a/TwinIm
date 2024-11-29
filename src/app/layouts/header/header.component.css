@@ -4,12 +4,17 @@
 
 .navbar-default {
   transition: all .5s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: #ffffff;
   padding-top: 20px;
   padding-bottom: 20px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   box-shadow: 1px 2px 15px rgba(100, 100, 100, 0.3);
+  z-index: 100;
 }
 
 .navbar-default .nav-search {
