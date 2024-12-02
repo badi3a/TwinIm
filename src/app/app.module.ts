@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {FormsModule} from "@angular/forms";
+
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,8 @@ import { BannerComponent } from './layouts/components/home/banner/banner.compone
 import { CardAnnouncementComponent } from './layouts/components/home/announcement/card-announcement/card-announcement.component';
 import { AllAnnouncementComponent } from './layouts/components/home/announcement/all-announcement/all-announcement.component';
 import { AnnouncementService } from './features/announcement/services/announcement.service';
+import { FormsModule } from '@angular/forms';
+
 
 
 //using this module our front App will be able to send http request
@@ -26,6 +28,7 @@ import { AnnouncementService } from './features/announcement/services/announceme
     BannerComponent,
     CardAnnouncementComponent,
     AllAnnouncementComponent,
+   
 
   ],
   imports: [
