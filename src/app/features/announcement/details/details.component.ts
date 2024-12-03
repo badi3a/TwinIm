@@ -2,6 +2,7 @@ import { AnnouncementService } from './../services/announcement.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Announcement } from 'src/app/core/models/announcement';
+import { NotificationService } from 'src/app/core/services/notification.service';
 
 @Component({
   selector: 'app-details',
@@ -17,7 +18,9 @@ export class DetailsComponent implements OnInit{
 
   
   constructor(private activatedRoute: ActivatedRoute 
-    , private announcementService: AnnouncementService , public router: Router) {
+    , private announcementService: AnnouncementService 
+    , private notificationService:NotificationService ,
+    public router: Router) {
   }
     
     ngOnInit() {
@@ -37,8 +40,31 @@ export class DetailsComponent implements OnInit{
       )
     }
 
-
-
+    deleteAnnouncement(id: any): void {
+      this.announcementService.deletAnnoucement(id).subscribe({
+        next: () => {
+          console.log('Annonce supprimée avec succès');
+          // Pass a success message to the list page via query parameters
+          this.router.navigate(['/announcement/list'], {
+            queryParams: { message: 'Annonce supprimée avec succès' },
+          });
+        },
+        error: (error) => {
+          console.error('Erreur lors de la suppression de l\'annonce :', error);
+        },
+        complete: () => {
+          console.log('Suppression terminée');
+        }
+      });
+    }
+    
+   
+    confirmDelete(announcementId: number): void {
+      const confirmed = window.confirm('Êtes-vous sûr de vouloir supprimer ?');
+      if (confirmed) {
+        this.deleteAnnouncement(announcementId);
+      }
+    }
 
     toggleEdit(): void {
       this.isEditing = !this.isEditing; // Permet de passer en mode édition ou non
@@ -72,20 +98,7 @@ export class DetailsComponent implements OnInit{
     }
 
 
-    deleteAnnouncement(id: any): void {
-      if (confirm('supprimer cette annonce ?')) {
-        this.announcementService.deletAnnoucement(id).subscribe(
-          () => {
-            console.log('Annonce supprimée avec succès');
-            this.router.navigate(['/list']);  // Utilisation du Router pour la redirection
-          },
-          (error) => {
-            console.error('Erreur lors de la suppression de l\'annonce :', error);
-          }
-        );
-      }
-
-    }
+   
    
      
 

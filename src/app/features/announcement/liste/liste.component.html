@@ -1,49 +1,64 @@
 <div class="container">
-  <h2>List of announcements </h2>
+  <h2>List of announcements</h2>
+
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
 
   <div class="card-container">
-    <div *ngFor="let a of list" class="card">
-      <a [routerLink]="['/announcement/details/' ,a.id]">
+    <div *ngFor="let a of listWithDropdown" class="card">
+      <div class="card-header">
+        <div class="dropdown">
+          <button class="dropdown-button" (click)="a.showDropdown = !a.showDropdown">
+            <i class="fa fa-ellipsis-v"></i>
+          </button>
+          <div *ngIf="a.showDropdown" class="dropdown-menu">
+            <button   class="mx-4 btn btn-danger" (click)="confirmDelete(a.announcement.id)">Delete
 
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+              </svg>
 
-        <img [src]="a.picture" alt="image" class="card-image">
+            </button>
+          </div>
+        </div>
+      </div>
 
+      <a [routerLink]="['/announcement/details/', a.announcement.id]">
+        <img [src]="a.announcement.picture" alt="image" class="card-image" />
       </a>
       <div class="card-body">
-        <h2 class="card-title">{{a.title}}</h2>
-        <p class="card-category">{{a.category}} - {{a.address}}</p>
-        <p class="card-description">{{a.description}}</p>
+        <h2 class="card-title">{{ a.announcement.title }}</h2>
+        <p class="card-category">{{ a.announcement.category }} - {{ a.announcement.address }}</p>
+        <p class="card-description">{{ a.announcement.description }}</p>
         <div class="card-details">
-          <div class="card-price">{{a.price | pipeprice}} </div>
-          <div class="card-status" [ngClass]="{'available': a.status === 'disponible', 'sold': a.status === 'vendu'}">
-            {{a.status}}
+          <div class="card-price">{{ a.announcement.price | pipeprice }}</div>
+          <div
+            class="card-status"
+            [ngClass]="{
+              available: a.announcement.status === 'disponible',
+              sold: a.announcement.status === 'vendu'
+            }"
+          >
+            {{ a.announcement.status }}
           </div>
         </div>
 
         <div class="card-footer">
-          <span>Rooms: {{a.roomsNumber}}</span>
-          <span>Date: {{a.datePublication}}</span>
-          <span>Surface: {{a.surface| pipesurface}} </span>
+          <span>Rooms: {{ a.announcement.roomsNumber }}</span>
+          <span>Date: {{ a.announcement.datePublication }}</span>
+          <span>Surface: {{ a.announcement.surface | pipesurface }} </span>
 
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-          <div class="like-button" (click)="addLike(a)" [ngClass]="{'liked': a.isLiked}">
+          <div
+            class="like-button"
+            (click)="addLike(a.announcement)"
+            [ngClass]="{ liked: a.announcement.isLiked }"
+          >
             <i class="fa fa-heart"></i>
-            <span>{{ a.nbrLike }}</span>
-          </div>
-
-        </div>
-
-        <div>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-          <div class="like-button" (click)="addLike(a)" [ngClass]="{'liked': a.isLiked}">
-            <i class="fa fa-heart"></i>
-            <span>{{ a.nbrLike }}</span>
+            <span>{{ a.announcement.nbrLike }}</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>

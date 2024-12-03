@@ -1,110 +1,161 @@
+/* Conteneur de cartes */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
 
-  /* Conteneur de cartes */
-  .card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
+/* Carte */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.516);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+  position: relative;
+  height: 100%;
+  cursor: pointer;
+}
 
-  }
+.card:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
 
-  /* Carte */
-  .card {
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 20px;
-    position: relative;
-    height: 100%;
-    cursor: pointer;
-  }
+/* Menu des trois points */
+.card-header {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  background-color: #ffffff00;
+}
 
-  .card:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  }
+.dropdown {
+  position: relative;
+}
 
-  /* Image de la carte */
-  .card-image {
-    width: 100%;
-    height: 250px;  /* Augmenter la hauteur de l'image pour qu'elle soit plus visible */
-    object-fit: cover;
-    border-radius: 8px;
-    transition: 0.3s;
-  }
+.dropdown-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #000000;
+  cursor: pointer;
+}
 
-  .card-image:hover {
-    transform: scale(1.01);
-  }
+.dropdown-button:hover {
+  color: #555555;
+}
 
-  /* Corps de la carte */
-  .card-body {
-    padding: 15px;
-  }
+.dropdown-menu {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background: #d7d7d7b4;
+  border: 1px solid #ff000000;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(244, 3, 3, 0);
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+}
 
-  /* Titre de la carte */
-  .card-title {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #333;  /* Couleur de texte plus foncée pour mieux contraster */
-    margin-bottom: 12px;
-  }
+.dropdown-item {
+  padding: 10px 15px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #f00000;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
 
-  /* Catégorie de la carte */
-  .card-category {
-    font-size: 1rem;
-    color: #777;  /* Texte plus doux pour la catégorie */
-    margin-bottom: 15px;
-  }
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
 
-  /* Description */
-  .card-description {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 15px;
-  }
+/* Image de la carte */
+.card-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: 0.3s;
+}
 
-  /* Détails : Prix et statut */
-  .card-details {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
+.card-image:hover {
+  transform: scale(1.01);
+}
 
-  .card-price {
-    font-size: 1.3rem;  /* Prix en vert pour un contraste visuel */
-    font-weight: bold;
-  }
+/* Corps de la carte */
+.card-body {
+  padding: 15px;
+}
 
-  .card-status {
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 6px 10px;
-    border-radius: 4px;
-  }
+/* Titre de la carte */
+.card-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+}
 
-  /* Statut disponible ou vendu */
-  .card-status.available {
-    color: white;
-  }
+/* Catégorie de la carte */
+.card-category {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 15px;
+}
 
-  .card-status.sold {
-    background-color: #dc3545;
-    color: white;
-  }
+/* Description */
+.card-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
 
-  /* Pied de la carte */
-  .card-footer {
-    font-size: 0.9rem;
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
-  }
+/* Détails : Prix et statut */
+.card-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
 
-  /* Ajouter un fond coloré au conteneur pour mieux distinguer les cartes */
-  .card-container {
-    padding: 30px;
-  }
+.card-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.card-status {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.card-status.available {
+  color: white;
+}
+
+.card-status.sold {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Pied de la carte */
+.card-footer {
+  font-size: 0.9rem;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Ajouter un fond coloré au conteneur pour mieux distinguer les cartes */
+.card-container {
+  padding: 30px;
+}
 
 
   .like-button {
