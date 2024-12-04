@@ -1,0 +1,72 @@
+<div class="container">
+  <form [formGroup]="updateForm" (ngSubmit)="updateProfile()">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" formControlName="firstName" class="form-control" />
+      <div *ngIf="updateForm.get('firstName')?.invalid && updateForm.get('firstName')?.touched">
+        <small *ngIf="updateForm.get('firstName')?.hasError('required')">First Name is required.</small>
+        <small *ngIf="updateForm.get('firstName')?.hasError('minlength')">Minimum 3 characters required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" formControlName="lastName" class="form-control" />
+      <div *ngIf="updateForm.get('lastName')?.invalid && updateForm.get('lastName')?.touched">
+        <small *ngIf="updateForm.get('lastName')?.hasError('required')">Last Name is required.</small>
+      </div>
+    </div>
+
+    <div formGroupName="address">
+      <div class="form-group">
+        <label>Street</label>
+        <input type="text" formControlName="street" class="form-control" />
+        <div *ngIf="updateForm.get('address.street')?.invalid && updateForm.get('address.street')?.touched">
+          <small *ngIf="updateForm.get('address.street')?.hasError('required')">Street is required.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" formControlName="city" class="form-control" />
+        <div *ngIf="updateForm.get('address.city')?.invalid && updateForm.get('address.city')?.touched">
+          <small *ngIf="updateForm.get('address.city')?.hasError('required')">City is required.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Zip Code</label>
+        <input type="text" formControlName="zipCode" class="form-control" />
+        <div *ngIf="updateForm.get('address.zipCode')?.invalid && updateForm.get('address.zipCode')?.touched">
+          <small *ngIf="updateForm.get('address.zipCode')?.hasError('required')">Zip Code is required.</small>
+          <small *ngIf="updateForm.get('address.zipCode')?.hasError('pattern')">Invalid Zip Code (must be 5 digits).</small>
+        </div>
+      </div>
+    </div>
+
+    <div formArrayName="phoneNumbers">
+      <div *ngFor="let phone of phoneNumbers.controls; let i = index">
+        <label>Phone {{ i + 1 }}</label>
+        <input type="text" [formControlName]="i" class="form-control" />
+        <div *ngIf="phone.invalid && phone.touched">
+          <small *ngIf="phone.hasError('pattern')">Invalid phone number (must be 8 digits).</small>
+        </div>
+        <button type="button" class="btn btn-danger" (click)="removePhoneNumber(i)">Remove</button>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="addPhoneNumber()">Add Phone</button>
+    </div>
+
+    <div class="form-group">
+      <label>Picture</label>
+      <input type="text" formControlName="picture" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Birthday</label>
+      <input type="date" formControlName="birthday" class="form-control" />
+      <div *ngIf="updateForm.get('birthday')?.invalid && updateForm.get('birthday')?.touched">
+        <small *ngIf="updateForm.get('birthday')?.hasError('required')">Birthday is required.</small>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="updateForm.invalid">Update Profile</button>
+  </form>
+</div>

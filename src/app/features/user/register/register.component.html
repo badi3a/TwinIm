@@ -1,0 +1,59 @@
+<div class="container">
+  <form [formGroup]="formRegister" (ngSubmit)="save()">
+    <div class="form-group">
+      <label>firstName</label>
+      <input type="text" class="form-control" formControlName="firstName">
+    </div>
+    <div class="alert alert-danger" *ngIf="formRegister.get('firstName')?.invalid &&
+     formRegister.get('firstName')?.touched">
+      <div *ngIf="formRegister.get('firstName')?.hasError('required')">
+        this field is required
+      </div>
+      <div *ngIf="formRegister.get('firstName')?.hasError('minlength')">
+        please give a valid name with 3 char
+      </div>
+    </div>
+    <div class="form-group">
+      <label>lastName</label>
+      <input type="text" class="form-control" formControlName="lastName">
+    </div>
+    <div class="alert alert-danger" *ngIf="formRegister.get('lastName')?.invalid &&
+     formRegister.get('lastName')?.touched">
+      <div *ngIf="formRegister.get('lastName')?.hasError('required')">
+        this field is required
+      </div>
+      <div *ngIf="formRegister.get('lastName')?.hasError('minlength')">
+        please give a valid name with 3 char
+      </div>
+    </div>
+    <div formGroupName="address">
+        <div class="form-group">
+          <label>street</label>
+          <input type="text" class="form-control" formControlName="street">
+        </div>
+      <div class="form-group">
+        <label>city</label>
+        <input type="text" class="form-control" formControlName="city">
+      </div>
+      <div class="form-group">
+        <label>Zip Code</label>
+        <input type="text" class="form-control" formControlName="zipCode">
+      </div>
+    </div>
+     <div formArrayName="phoneNumbers">
+       <div class="form-group" *ngFor="let phone of phoneNumbers.controls; let i=index">
+         <label>phone Number {{i +1}}</label>
+         <input type="text" [formControlName]="i" class="form-control">
+         <button class="btn btn-warning" (click)="removePhoneNumber(i)">-</button>
+       </div>
+       <button class="btn btn-warning" (click)="addPhoneNumber()">+</button>
+
+     </div>
+
+    <br>
+    <button class="btn btn-success" type="submit" [disabled]="formRegister.invalid" >
+      save
+    </button>
+  </form>
+
+</div>

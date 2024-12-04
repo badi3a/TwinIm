@@ -1,0 +1,11 @@
+.success-snackbar {
+    background-color: green !important;
+    color: white !important;
+    position: relative;
+    top: 0;
+}
+
+.error-snackbar {
+    background-color: red !important;
+    color: white !important;
+}
