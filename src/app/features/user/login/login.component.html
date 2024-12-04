@@ -1,1 +1,38 @@
-<p>login works!</p>
+<div class="login-container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <!-- Champ First Name -->
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        formControlName="firstName"
+        class="form-control"
+        [class.is-invalid]="loginForm.get('firstName')?.invalid && loginForm.get('firstName')?.touched"
+      />
+      <div *ngIf="loginForm.get('firstName')?.invalid && loginForm.get('firstName')?.touched" class="invalid-feedback">
+        <small *ngIf="loginForm.get('firstName')?.errors?.['required']">Le nom est requis.</small>
+        <small *ngIf="loginForm.get('firstName')?.errors?.['minlength']">Minimum 3 caractères.</small>
+      </div>
+    </div>
+
+    <!-- Champ Phone Number -->
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input
+        type="text"
+        id="phoneNumber"
+        formControlName="phoneNumber"
+        class="form-control"
+        [class.is-invalid]="loginForm.get('phoneNumber')?.invalid && loginForm.get('phoneNumber')?.touched"
+      />
+      <div *ngIf="loginForm.get('phoneNumber')?.invalid && loginForm.get('phoneNumber')?.touched" class="invalid-feedback">
+        <small *ngIf="loginForm.get('phoneNumber')?.errors?.['required']">Le numéro de téléphone est requis.</small>
+        <small *ngIf="loginForm.get('phoneNumber')?.errors?.['pattern']">Numéro invalide (8 chiffres).</small>
+      </div>
+    </div>
+
+    <!-- Bouton de soumission -->
+    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Se connecter</button>
+  </form>
+</div>
