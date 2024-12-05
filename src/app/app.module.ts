@@ -9,10 +9,11 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { NotFoundComponent } from './layouts/not-found/not-found.component';
 import {HttpClientModule} from "@angular/common/http";
 import {SharedModule} from "./shared/shared.module";
-import { BannerComponent } from './layouts/components/home/banner/banner.component';
-import { CardAnnouncementComponent } from './layouts/components/home/announcement/card-announcement/card-announcement.component';
-import { AllAnnouncementComponent } from './layouts/components/home/announcement/all-announcement/all-announcement.component';
 import { AnnouncementService } from './features/announcement/services/announcement.service';
+import {AnnouncementModule} from "./features/announcement/announcement.module";
+import {CardComponent} from "./features/announcement/card/card.component";
+import {CardAnnonceComponent} from "./layouts/card-annonce/card-annonce.component";
+
 
 
 //using this module our front App will be able to send http request
@@ -23,9 +24,6 @@ import { AnnouncementService } from './features/announcement/services/announceme
     HeaderComponent,
     FooterComponent,
     NotFoundComponent,
-    BannerComponent,
-    CardAnnouncementComponent,
-    AllAnnouncementComponent,
 
   ],
   imports: [
@@ -33,7 +31,9 @@ import { AnnouncementService } from './features/announcement/services/announceme
     FormsModule,
     AppRoutingModule,
     HttpClientModule, // Import the HTTP client module
-    SharedModule ,
+    SharedModule,
+    AnnouncementModule,
+    CardAnnonceComponent,
   ],
   providers: [AnnouncementService],
   bootstrap: [AppComponent]
