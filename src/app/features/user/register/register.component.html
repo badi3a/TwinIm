@@ -1,59 +1,78 @@
-<div class="container">
-  <form [formGroup]="formRegister" (ngSubmit)="save()">
-    <div class="form-group">
-      <label>firstName</label>
-      <input type="text" class="form-control" formControlName="firstName">
-    </div>
-    <div class="alert alert-danger" *ngIf="formRegister.get('firstName')?.invalid &&
-     formRegister.get('firstName')?.touched">
-      <div *ngIf="formRegister.get('firstName')?.hasError('required')">
-        this field is required
-      </div>
-      <div *ngIf="formRegister.get('firstName')?.hasError('minlength')">
-        please give a valid name with 3 char
-      </div>
-    </div>
-    <div class="form-group">
-      <label>lastName</label>
-      <input type="text" class="form-control" formControlName="lastName">
-    </div>
-    <div class="alert alert-danger" *ngIf="formRegister.get('lastName')?.invalid &&
-     formRegister.get('lastName')?.touched">
-      <div *ngIf="formRegister.get('lastName')?.hasError('required')">
-        this field is required
-      </div>
-      <div *ngIf="formRegister.get('lastName')?.hasError('minlength')">
-        please give a valid name with 3 char
-      </div>
-    </div>
-    <div formGroupName="address">
-        <div class="form-group">
-          <label>street</label>
-          <input type="text" class="form-control" formControlName="street">
-        </div>
-      <div class="form-group">
-        <label>city</label>
-        <input type="text" class="form-control" formControlName="city">
-      </div>
-      <div class="form-group">
-        <label>Zip Code</label>
-        <input type="text" class="form-control" formControlName="zipCode">
-      </div>
-    </div>
-     <div formArrayName="phoneNumbers">
-       <div class="form-group" *ngFor="let phone of phoneNumbers.controls; let i=index">
-         <label>phone Number {{i +1}}</label>
-         <input type="text" [formControlName]="i" class="form-control">
-         <button class="btn btn-warning" (click)="removePhoneNumber(i)">-</button>
-       </div>
-       <button class="btn btn-warning" (click)="addPhoneNumber()">+</button>
 
-     </div>
+<html lang="en">
 
-    <br>
-    <button class="btn btn-success" type="submit" [disabled]="formRegister.invalid" >
-      save
-    </button>
-  </form>
+<body>
+    <div class="signup-container">
+        <h1>Sign Up</h1>
+        <form [formGroup]="formRegister" (ngSubmit)="save()" class="signup-form">
 
-</div>
+         
+            <div class="form-grid">
+                
+                <div class="form-column left-column">
+                    <h2 style="background-color: beige;color: black;">Personal Information</h2>
+
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" class="form-control" formControlName="firstName" placeholder="Enter your first name" required>
+
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" class="form-control" formControlName="lastName" placeholder="Enter your last name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter your email" required>
+
+                    
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" formControlName="password" placeholder="Create a password" required minlength="8">
+
+                   
+                    <label for="birthday">Birthday</label>
+                    <input type="date" id="birthday" class="form-control" formControlName="birthday" required>
+                </div>
+
+               
+                <div class="form-column right-column">
+                    <h2  style="background-color: beige;color: black;"> Other Informations</h2>
+
+                  
+                    <fieldset formGroupName="address">
+                        <label for="street">Street</label>
+                        <input type="text" id="street" class="form-control" formControlName="street" placeholder="Enter street">
+
+                        <label for="city">City</label>
+                        <input type="text" id="city" class="form-control" formControlName="city" placeholder="Enter city">
+
+                        <label for="zipCode">Zip Code</label>
+                        <input type="text" id="zipCode" class="form-control" formControlName="zipCode" placeholder="Enter zip code">
+                    </fieldset>
+
+                   
+                    <div formArrayName="phoneNumbers">
+                        <label>Phone Numbers</label>
+                        <div *ngFor="let phone of phoneNumbers.controls; let i = index" class="phone-container">
+                            <input type="text" [formControlName]="i" class="form-control" placeholder="Enter phone number">
+                            <button class="btn btn-warning" (click)="removePhoneNumber(i)" type="button">Remove</button>
+                        </div>
+                        <button class="btn btn-warning" (click)="addPhoneNumber()" type="button">Add Phone Number</button>
+                    </div>
+
+                    <label for="image">Upload Picture</label>
+                    <input type="file" id="image" (change)="onImageSelect($event)" accept="image/*" class="form-control">
+
+                    
+                    <div *ngIf="imagePreview">
+                        <label>Image Preview</label>
+                        <img [src]="imagePreview" alt="Image preview" class="img-fluid image-preview" />
+                    </div>
+                </div>
+            </div>
+
+    
+            <div class="form-footer">
+                <button class="signup-button" type="submit" [disabled]="formRegister.invalid">Sign Up</button>
+              
+            </div>
+        </form>
+    </div>
+</body>
+</html>
