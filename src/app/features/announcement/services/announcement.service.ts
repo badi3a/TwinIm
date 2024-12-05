@@ -7,6 +7,8 @@ import {Observable} from "rxjs";
 export class AnnouncementService {
    urlApi: string= "http://localhost:3000/announcements/";
   constructor(private http:HttpClient) { }
+
+  
   ///CNX Backend Side
   //getAnnouncement
   getAllAnnouncements():Observable<Announcement[]> {
