@@ -1,1 +1,13 @@
-<p>login works!</p>
+<div class="login-container">
+    <h1>Connexion</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+      <label for="email">Nom d'utilisateur</label>
+      <input type="text" id="email" formControlName="email" required />
+    
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" formControlName="password" required />
+    
+      <button type="submit" [disabled]="loginForm.invalid">Se connecter</button>
+    </form>
+  </div>
+  

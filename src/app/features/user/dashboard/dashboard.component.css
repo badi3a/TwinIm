@@ -1,0 +1,51 @@
+.dashboard-container {
+    padding: 20px;
+  }
+  
+  .statistics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .stat-item {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 8px;
+    width: 45%;
+    text-align: center;
+  }
+  
+  .stat-item h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .stat-item p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00A1D1;
+  }
+  
+  .users-table {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  

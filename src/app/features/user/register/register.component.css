@@ -1,0 +1,134 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+/* Signup Container */
+.signup-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.signup-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #5cb85c;
+}
+
+/* Form Layout */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* Columns */
+.form-column {
+    width: 48%;
+}
+
+.left-column,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+h2 {
+  
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+/* Input Fields */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    border-color: #4c9aff;
+    outline: none;
+}
+
+/* Buttons */
+.btn {
+    padding: 5px 10px;
+    background-color: #f0ad4e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+}
+
+/* Submit Button */
+.signup-button {
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+/* Footer */
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.terms {
+    font-size: 0.9rem;
+}
+
+.terms a {
+    color: #4c9aff;
+    text-decoration: none;
+}
+
+/* Image Preview */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Phone Container */
+.phone-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.phone-container input {
+    flex-grow: 1;
+}
+.error {
+    color: red;
+    font-size: 12px;
+  }
+  

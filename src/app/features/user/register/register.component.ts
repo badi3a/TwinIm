@@ -1,9 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Announcement} from "../../../core/models/announcement";
-import {User} from "../../../core/models/User";
-import {UserService} from "../services/user.service";
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from '../services/user.service'; // Assurez-vous que l'importation est correcte
 
 @Component({
   selector: 'app-register',
@@ -11,47 +9,38 @@ import {Router} from "@angular/router";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  // FormGroup: class that match the form tag in the Template && is a collection of inputs
-     formRegister: FormGroup;
-     user:User = new User();
-     constructor(private userService: UserService, private router: Router) {}
-     ngOnInit() {
-       this.formRegister= new FormGroup(
-         //FormControl: class that match an input in the form
-         {firstName: new FormControl('',[Validators.required, Validators.minLength(3)]),
-         lastName: new FormControl('',[Validators.required, Validators.minLength(3)]),
-         address: new FormGroup(
-           { street: new FormControl('',[Validators.required]),
-             city: new FormControl('',[Validators.required]),
-             zipCode: new FormControl('',[Validators.required])
-           },
-         ),
-           phoneNumbers: new FormArray([this.createPhoneControl()])
-         }
+  formRegister: FormGroup;
 
-       );
-     }
-     //Helper method
-     createPhoneControl(){
-       return new FormControl('', [Validators.pattern(/^[0-9]{8}$/)]);
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.formRegister = this.fb.group({
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      role: ['userSimple']  
+    });
   }
-  addPhoneNumber(){
-       this.phoneNumbers.push(this.createPhoneControl());
-  }
-  removePhoneNumber(i:number){
-    this.phoneNumbers.removeAt(i);
-  }
-     //the method save to be executed after the submit event (ngSubmit)
-      get phoneNumbers(){
-       return (this.formRegister.get('phoneNumbers') as FormArray);
+
+  save(): void {
+    if (this.formRegister.invalid) {
+      return;
+    }
+
+    const newUser = this.formRegister.value;
+    this.userService.addUser(newUser).subscribe(
+      () => {
+        this.router.navigate(['/user/login']);  
+      },
+      (error) => {
+        console.error('L\'inscription a échoué', error);
+        alert('Erreur lors de l\'inscription. Veuillez réessayer.');
       }
-     save(){
-       //backend
-       this.user = this.formRegister.getRawValue();
-       this.userService.addUser(this.user).subscribe(
-         (data:User)=>{this.router.navigateByUrl('user/profile/${data.id}');}
-       )
-       //get the set of value of each input in the form
-        console.log(this.formRegister.getRawValue())
-     }
+    );
+  }
 }

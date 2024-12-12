@@ -1,0 +1,92 @@
+/* Styles globaux pour centrer le contenu de la page */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;  /* Centre horizontalement */
+    align-items: center;      /* Centre verticalement */
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6; /* Couleur de fond douce */
+  }
+  
+  /* Conteneur principal pour le formulaire de connexion */
+  .login-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 300px;  /* Largeur fixe du formulaire */
+    box-sizing: border-box;
+    margin-left: 600px;
+  }
+  
+  /* Titre du formulaire */
+  h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Styles pour les labels et champs de texte */
+  label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  /* Styles pour les champs de texte */
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  /* Styles pour le bouton de soumission */
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
+  /* Ajout de marges pour une meilleure séparation */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Pour les petits écrans */
+  @media (max-width: 480px) {
+    .login-container {
+      width: 90%;
+    }
+  }
+  

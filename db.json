@@ -43,5 +43,60 @@
       "id": 5
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "zeinebmaatalli1@gmail.com",
+      "password": "$2a$10$NxWYSN/D9oa1qTnBZhkHwer9/89AKveHrXmS02a9keiB7rHHfP5cy",
+      "firstName": "maatalli",
+      "lastName": "zeineb ",
+      "role": "userSimple",
+      "id": 2
+    },
+    {
+      "email": "mehdi@gmail.com",
+      "password": "$2a$10$6caRyH3HbGDl3p8SboKhTuuyvfegm/Cxnd5Y85pcC7n9sNHRjtuhO",
+      "firstName": "mehdi",
+      "lastName": "ddddd",
+      "role": "userSimple",
+      "id": 4
+    },
+    {
+      "email": "tesnim@gmail.com",
+      "password": "$2a$10$3p5MxeVdAlwK5CZb.4DVCuZu2WxppcwgZoparY26e6xLRAx9YoyhO",
+      "firstName": "Tesnim",
+      "lastName": "maatalli",
+      "role": "userSimple",
+      "id": 5
+    },
+    {
+      "email": "zeineb.maatalli@esprit.tn",
+      "password": "$2a$10$ED3NdanSRzo2n3OdOeFd4uFT1TlDIOvopj9/2mAjIRZukWF4GNY6O",
+      "firstName": "zeineb",
+      "lastName": "maatalli",
+      "role": "userSimple",
+      "id": 6
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$NcJJrhzawy6QiHqAsuRjzuQ5Fivr0pFP.2ny.pfswgOGEttwhFU9u",
+      "role": "Admin",
+      "id": 7
+    },
+    {
+      "email": "zeineb@gmail.com",
+      "password": "$2a$10$8/u5wKnnAYKwb8TQPCrMk.QVGRBY8Ajun.qeVkpkCAbZ3IBeaZM4W",
+      "firstName": "zeineb",
+      "lastName": "maatalli",
+      "role": "userSimple",
+      "id": 8
+    },
+    {
+      "email": "zeineb1@gmail.com",
+      "password": "$2a$10$miPCPTKw9hOaJ0g4nzWSOedie2DKqBsRAEsgbgAqm8COsQbgbmVga",
+      "firstName": "maatalli",
+      "lastName": "zeineb",
+      "role": "userSimple",
+      "id": 9
+    }
+  ]
 }

@@ -1,0 +1,26 @@
+<div class="profile-container">
+    <!-- Vérification de l'existence des données de l'utilisateur -->
+    <div *ngIf="errorMessage" class="error-message">
+      <p>{{ errorMessage }}</p>
+    </div>
+  
+    <div *ngIf="user">
+      <div style="margin-left: 350px;" >
+        <div class="sidebar-header">
+          <div class="profile-initial">
+            {{ user.firstName[0] }}{{ user.lastName[0] }} <!-- Initiales de l'utilisateur -->
+          </div>
+          <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+        </div>
+
+        <div class="profile-main">
+        <h1 >Bienvenue, {{ user.firstName }}!</h1>
+        <p>Email: {{ user.email }}</p>
+     
+      </div>
+      </div>
+  
+      
+    </div>
+  </div>
+  

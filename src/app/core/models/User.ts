@@ -7,10 +7,14 @@ export class User {
   id: number;
   firstName: string;
   lastName: string;
-  address: Address;
-  phoneNumbers: String[];
-  login: string;
+
+  email: string;
   password: string;
+  
+  role: string;
+
   picture:string;
   birthday: Date;
+  address: Address;
+  phoneNumbers: String[];
 }
