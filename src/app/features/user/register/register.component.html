@@ -13,6 +13,7 @@
         please give a valid name with 3 char
       </div>
     </div>
+
     <div class="form-group">
       <label>lastName</label>
       <input type="text" class="form-control" formControlName="lastName">
@@ -26,19 +27,20 @@
         please give a valid name with 3 char
       </div>
     </div>
+
     <div class="form-group">
       <label>email</label>
       <input type="text" class="form-control" formControlName="email">
     </div>
-    <div class="alert alert-danger" *ngIf="formRegister.get('email')?.invalid &&
-     formRegister.get('email')?.touched">
+    <div class="alert alert-danger" *ngIf="formRegister.get('email')?.invalid && formRegister.get('email')?.touched">
       <div *ngIf="formRegister.get('email')?.hasError('required')">
         this field is required
       </div>
-      <div *ngIf="formRegister.get('email')?.hasError('minlength')">
+      <div *ngIf="formRegister.get('email')?.hasError('pattern')">
         please give a valid name with 3 char
       </div>
     </div>
+
     <div class="form-group">
       <label>password</label>
       <input type="text" class="form-control" formControlName="password">
@@ -48,7 +50,7 @@
       <div *ngIf="formRegister.get('password')?.hasError('required')">
         this field is required
       </div>
-      <div *ngIf="formRegister.get('password')?.hasError('minlength')">
+      <div *ngIf="formRegister.get('password')?.hasError('pattern')">
         please give a valid name with 3 char
       </div>
     </div>
@@ -84,7 +86,16 @@
        <div class="form-group" *ngFor="let phone of phoneNumbers.controls; let i=index">
          <label>phone Number {{i +1}}</label>
          <input type="text" [formControlName]="i" class="form-control">
-         <button class="btn btn-warning" (click)="removePhoneNumber(i)">-</button>
+        
+         <div class="alert alert-danger" *ngIf="formRegister.get('phoneNumbers')?.invalid && formRegister.get('phoneNumbers')?.touched">
+          <div *ngIf="formRegister.get('phoneNumbers')?.hasError('required')">
+            This field is required.
+          </div>
+          <div *ngIf="formRegister.get('phoneNumbers')?.hasError('pattern')">
+            Please enter a valid phone xxxxxxxx
+          </div>
+       </div>
+       <button class="btn btn-warning" (click)="removePhoneNumber(i)">-</button>
        </div>
        <button class="btn btn-warning" (click)="addPhoneNumber()">+</button>
 

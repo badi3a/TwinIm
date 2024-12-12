@@ -30,9 +30,6 @@ export class AnnouncementService {
   //getbyId
   //update
 
-  getAllAnnou(){
-
-  }
 
 
 

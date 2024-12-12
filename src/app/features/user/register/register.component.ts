@@ -50,11 +50,13 @@ export class RegisterComponent implements OnInit {
       get phoneNumbers(){
        return (this.formRegister.get('phoneNumbers') as FormArray);
       }
+
+
      save(){
        //backend
        this.user = this.formRegister.getRawValue();
        this.userService.addUser(this.user).subscribe(
-         (data:User)=>{this.router.navigateByUrl('user/profile/${data.id}');}
+         (data:User)=>{this.router.navigateByUrl('user/login');}
        )
        //get the set of value of each input in the form
         console.log(this.formRegister.getRawValue())
@@ -62,9 +64,7 @@ export class RegisterComponent implements OnInit {
 
 
      register(d: any)  {
-      
-      return this.http.post<User>('http://localhost:3000/register', d) ;;
-      
+      this.http.post<User>('http://localhost:3000/register', d) ;
     }
 
   
