@@ -1,1 +1,44 @@
-<p>login works!</p>
+<div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          class="form-control"
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+        <div class="alert alert-danger" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <div *ngIf="loginForm.get('email')?.hasError('required')">Email is required</div>
+          <div *ngIf="loginForm.get('email')?.hasError('email')">Please provide a valid email</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          class="form-control"
+          formControlName="password"
+          placeholder="Enter your password"
+        />
+        <div class="alert alert-danger" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <div *ngIf="loginForm.get('password')?.hasError('required')">Password is required</div>
+          <div *ngIf="loginForm.get('password')?.hasError('minlength')">Password must be at least 6 characters long</div>
+        </div>
+      </div>
+  
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+  
+      <button type="submit" class="btn btn-success" [disabled]="loginForm.invalid">
+        login
+      </button>
+    </form>
+  </div>
+  

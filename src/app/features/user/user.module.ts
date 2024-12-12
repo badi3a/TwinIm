@@ -8,11 +8,15 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "./services/user.service";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PROFILEComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     UserComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    PROFILEComponent
   ],
   imports: [
     CommonModule,

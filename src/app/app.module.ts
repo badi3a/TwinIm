@@ -13,6 +13,8 @@ import { AnnouncementService } from './features/announcement/services/announceme
 import {AnnouncementModule} from "./features/announcement/announcement.module";
 import {CardComponent} from "./features/announcement/card/card.component";
 import {CardAnnonceComponent} from "./layouts/card-annonce/card-annonce.component";
+import { AuthentificationGuard } from './authentification.guard';
+import { UserService } from './features/user/services/user.service';
 
 
 
@@ -35,7 +37,7 @@ import {CardAnnonceComponent} from "./layouts/card-annonce/card-annonce.componen
     AnnouncementModule,
     CardAnnonceComponent,
   ],
-  providers: [AnnouncementService],
+  providers: [AnnouncementService,AuthentificationGuard,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

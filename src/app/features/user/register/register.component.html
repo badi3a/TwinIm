@@ -1,59 +1,105 @@
 <div class="container">
   <form [formGroup]="formRegister" (ngSubmit)="save()">
+    <!-- First Name -->
     <div class="form-group">
-      <label>firstName</label>
-      <input type="text" class="form-control" formControlName="firstName">
-    </div>
-    <div class="alert alert-danger" *ngIf="formRegister.get('firstName')?.invalid &&
-     formRegister.get('firstName')?.touched">
-      <div *ngIf="formRegister.get('firstName')?.hasError('required')">
-        this field is required
-      </div>
-      <div *ngIf="formRegister.get('firstName')?.hasError('minlength')">
-        please give a valid name with 3 char
+      <label for="firstName">First Name</label>
+      <input 
+        id="firstName" 
+        type="text" 
+        class="form-control" 
+        formControlName="firstName">
+      <div class="alert alert-danger" *ngIf="formRegister.get('firstName')?.invalid && formRegister.get('firstName')?.touched">
+        <div *ngIf="formRegister.get('firstName')?.hasError('required')">This field is required</div>
       </div>
     </div>
+
+    <!-- Last Name -->
     <div class="form-group">
-      <label>lastName</label>
-      <input type="text" class="form-control" formControlName="lastName">
-    </div>
-    <div class="alert alert-danger" *ngIf="formRegister.get('lastName')?.invalid &&
-     formRegister.get('lastName')?.touched">
-      <div *ngIf="formRegister.get('lastName')?.hasError('required')">
-        this field is required
-      </div>
-      <div *ngIf="formRegister.get('lastName')?.hasError('minlength')">
-        please give a valid name with 3 char
+      <label for="lastName">Last Name</label>
+      <input 
+        id="lastName" 
+        type="text" 
+        class="form-control" 
+        formControlName="lastName">
+      <div class="alert alert-danger" *ngIf="formRegister.get('lastName')?.invalid && formRegister.get('lastName')?.touched">
+        <div *ngIf="formRegister.get('lastName')?.hasError('required')">This field is required</div>
       </div>
     </div>
+
+    <!-- Address Group -->
     <div formGroupName="address">
-        <div class="form-group">
-          <label>street</label>
-          <input type="text" class="form-control" formControlName="street">
-        </div>
       <div class="form-group">
-        <label>city</label>
-        <input type="text" class="form-control" formControlName="city">
+        <label for="street">Street</label>
+        <input id="street" type="text" class="form-control" formControlName="street">
       </div>
       <div class="form-group">
-        <label>Zip Code</label>
-        <input type="text" class="form-control" formControlName="zipCode">
+        <label for="city">City</label>
+        <input id="city" type="text" class="form-control" formControlName="city">
+      </div>
+      <div class="form-group">
+        <label for="zipCode">Zip Code</label>
+        <input id="zipCode" type="text" class="form-control" formControlName="zipCode">
       </div>
     </div>
-     <div formArrayName="phoneNumbers">
-       <div class="form-group" *ngFor="let phone of phoneNumbers.controls; let i=index">
-         <label>phone Number {{i +1}}</label>
-         <input type="text" [formControlName]="i" class="form-control">
-         <button class="btn btn-warning" (click)="removePhoneNumber(i)">-</button>
-       </div>
-       <button class="btn btn-warning" (click)="addPhoneNumber()">+</button>
 
-     </div>
+    <!-- Phone Numbers -->
+    <div formArrayName="phoneNumbers">
+      <div class="form-group" *ngFor="let phone of phoneNumbers.controls; let i = index">
+        <label for="phoneNumber{{i}}">Phone Number {{i + 1}}</label>
+        <input 
+          id="phoneNumber{{i}}" 
+          type="text" 
+          [formControlName]="i" 
+          class="form-control">
+        <button type="button" class="btn btn-warning" (click)="removePhoneNumber(i)">-</button>
+      </div>
+      <button type="button" class="btn btn-warning" (click)="addPhoneNumber()">+</button>
+    </div>
 
-    <br>
-    <button class="btn btn-success" type="submit" [disabled]="formRegister.invalid" >
-      save
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input 
+        id="email" 
+        type="email" 
+        class="form-control" 
+        formControlName="email">
+      <div class="alert alert-danger" *ngIf="formRegister.get('email')?.invalid && formRegister.get('email')?.touched">
+        <div *ngIf="formRegister.get('email')?.hasError('required')">This field is required</div>
+        <div *ngIf="formRegister.get('email')?.hasError('email')">Please provide a valid email</div>
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input 
+        id="password" 
+        type="password" 
+        class="form-control" 
+        formControlName="password">
+      <div class="alert alert-danger" *ngIf="formRegister.get('password')?.invalid && formRegister.get('password')?.touched">
+        <div *ngIf="formRegister.get('password')?.hasError('required')">This field is required</div>
+        <div *ngIf="formRegister.get('password')?.hasError('minlength')">Password must be at least 6 characters</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="role">Role</label>
+      <select 
+        id="role" 
+        class="form-control" 
+        formControlName="role">
+        <option value="userSimple">Simple User</option>
+        <option value="ROLE_ADMIN">Admin</option>
+      </select>
+    </div>
+
+    <button 
+      type="submit" 
+      class="btn btn-success" 
+       [disabled]="formRegister.invalid">
+      Save
     </button>
   </form>
-
 </div>

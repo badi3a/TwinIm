@@ -23,4 +23,24 @@ export class UserService {
   deleteUser(id:number):Observable<User> {
     return this.http.delete<User>(`${this.api}/users/${id}`)
   }
+
+  login(data:any): Observable<any> {
+    return this.http.post<any>(`${this.api}/login`, data);
+  }
+
+
+  _is_logged(): boolean {
+    return !!localStorage.getItem('access_token');
+    }
+
+
+    getRole(role: string): boolean {
+      const userRole = localStorage.getItem('role');
+      return userRole === role;
+    }
+
+      logOut(): void {
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('role');
+      }
 }

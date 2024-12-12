@@ -1,27 +1,23 @@
-# TwinIm
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.15.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+ 1. Développer le module utilisateur
+ Inscription :
+ o Création d'un formulaire d'inscription 
+o Valider les données en suivant les critères :
+ Email au format valide.
+ Mot de passe avec au moins 6 caractères.
+ o Sauvegarder les données de l'utilisateur avec le json-server-auth
+ Login :
+ o Création d'un formulaire de connexion avec les champs :
+ email
+ Mot de passe.
+ o Utiliser le json-auth server pour l’authentification
+ o En fonction du rôle de l'utilisateur :
+ Si le rôle est userSimple, rediriger l'utilisateur vers une page de profil 
+personnel affichant un message de bienvenue.
+Si le rôle est admin, rediriger l'utilisateur vers un dashboard Admin.
+ 2. Développer l'interface du dashboard Admin
+Fonctionnalité attendue :
+ o Afficher une table listant tous les utilisateurs inscrits, avec les informations 
+suivantes :
+Nom d'utilisateur.
+Email.
+ Rôle.
