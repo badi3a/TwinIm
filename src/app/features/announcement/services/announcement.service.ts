@@ -7,6 +7,10 @@ import {Observable} from "rxjs";
 export class AnnouncementService {
    urlApi: string= "http://localhost:3000/announcements/";
   constructor(private http:HttpClient) { }
+  getLikedAnnouncement(){
+    return this.http.get<Announcement[]>(`${this.urlApi}?isLiked=true`);
+  }
+
   ///CNX Backend Side
   //getAnnouncement
   getAllAnnouncements():Observable<Announcement[]> {
@@ -32,7 +36,7 @@ export class AnnouncementService {
 
 
 
-  
+
 
   getAnnoucementBYID(id: any){
     return this.http.get<Announcement>(`${this.urlApi}${id}`)
@@ -45,7 +49,7 @@ deletAnnoucement(id: any): Observable<void> {
 
 
 
-updateAnnouncement(id: string, announcement: Announcement): Observable<void> {
+updateAnnouncement(id: any, announcement: Announcement): Observable<void> {
   return this.http.put<void>(`${this.urlApi}${id}`, announcement);
 }
 

@@ -8,6 +8,7 @@ const routes: Routes = [
   { path:'', redirectTo:'home', pathMatch:'full'},
   {path: 'announcement', loadChildren: () => import('./features/announcement/announcement.module').then(m => m.AnnouncementModule) },
   { path: 'user', loadChildren: () => import('./features/user/user.module').then(m => m.UserModule) },
+  
   {path:'**', component:NotFoundComponent}];
 
 @NgModule({

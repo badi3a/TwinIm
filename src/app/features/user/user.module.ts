@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import { RegisterComponent } from './register/register.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "./services/user.service";
@@ -17,6 +17,7 @@ import {UserService} from "./services/user.service";
   imports: [
     CommonModule,
     UserRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],
