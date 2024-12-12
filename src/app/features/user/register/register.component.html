@@ -26,6 +26,46 @@
         please give a valid name with 3 char
       </div>
     </div>
+    <div class="form-group">
+      <label>email</label>
+      <input type="text" class="form-control" formControlName="email">
+    </div>
+    <div class="alert alert-danger" *ngIf="formRegister.get('email')?.invalid &&
+     formRegister.get('email')?.touched">
+      <div *ngIf="formRegister.get('email')?.hasError('required')">
+        this field is required
+      </div>
+      <div *ngIf="formRegister.get('email')?.hasError('minlength')">
+        please give a valid name with 3 char
+      </div>
+    </div>
+    <div class="form-group">
+      <label>password</label>
+      <input type="text" class="form-control" formControlName="password">
+    </div>
+    <div class="alert alert-danger" *ngIf="formRegister.get('password')?.invalid &&
+     formRegister.get('password')?.touched">
+      <div *ngIf="formRegister.get('password')?.hasError('required')">
+        this field is required
+      </div>
+      <div *ngIf="formRegister.get('password')?.hasError('minlength')">
+        please give a valid name with 3 char
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Role</label>
+      <input type="text" class="form-control" formControlName="role">
+    </div>
+    <div class="alert alert-danger" *ngIf="formRegister.get('role')?.invalid && formRegister.get('role')?.touched">
+      <div *ngIf="formRegister.get('role')?.hasError('required')">
+        This field is required.
+      </div>
+      <div *ngIf="formRegister.get('role')?.hasError('pattern')">
+        Please enter a valid role: either "role_admin" or "role_simpleuser".
+      </div>
+    </div>
+    
     <div formGroupName="address">
         <div class="form-group">
           <label>street</label>
@@ -51,7 +91,8 @@
      </div>
 
     <br>
-    <button class="btn btn-success" type="submit" [disabled]="formRegister.invalid" >
+
+    <button class="btn btn-success" type="submit" [disabled]="formRegister.invalid"  (click)="register(user)" >
       save
     </button>
   </form>

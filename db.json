@@ -43,5 +43,55 @@
       "id": 5
     }
   ],
-  "users": []
+  "users": [
+   
+    {
+      "email": "ezzdine@gmail.com",
+      "password": "$2a$10$jXdDU.0dcSJ3th7aOOEUcO9C0cyumexl7TyzCpAYutnwBdlKn589K",
+      "firstName": "ezzdine",
+      "lastName": "ezzdine",
+      "role": "role_simpleuser",
+      "address": {
+        "street": "street ",
+        "city": "Vel illo nostrum qua",
+        "zipCode": "Iste eveniet autem "
+      },
+      "phoneNumbers": [
+        "12345678"
+      ],
+      "id": 7
+    },
+    {
+      "email": "Molestia@gmail.com",
+      "password": "$2a$10$ykubWZgrZXXO4S7yCWDyc.q3fPjNi5dAdJGNZeJyzyo5LCJtniK/q",
+      "firstName": "Ratione velit cillum",
+      "lastName": "Ipsum quidem quia d",
+      "role": "role_simpleuser",
+      "address": {
+        "street": "Quia officia esse e",
+        "city": "Enim consequatur aut",
+        "zipCode": "Dignissimos sit duci"
+      },
+      "phoneNumbers": [
+        "12345678"
+      ],
+      "id": 8
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$zh3/ESPAUUJuqrda3CLagOv3j6cyPg9zAtT3gwTTu3ze8wQEJGbwC",
+      "firstName": "admin",
+      "lastName": "admin",
+      "role": "role_admin",
+      "address": {
+        "street": "Quisquam dolor provi",
+        "city": "Sed cupiditate labor",
+        "zipCode": "In elit sunt maxime"
+      },
+      "phoneNumbers": [
+        "98765432"
+      ],
+      "id": 9
+    }
+  ]
 }
