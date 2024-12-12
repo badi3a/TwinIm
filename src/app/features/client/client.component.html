@@ -1,0 +1,31 @@
+<div class="container mt-4" *ngIf="currentUser">
+    <h2>Profil Client</h2>
+    
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h3>Mes Informations</h3>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Nom complet</th>
+              <td>{{currentUser.firstName}} {{currentUser.lastName}}</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>{{currentUser.email}}</td>
+            </tr>
+            <tr>
+              <th>Adresse</th>
+              <td>{{currentUser.address.street}}, {{currentUser.address.city}} {{currentUser.address.zipCode}}</td>
+            </tr>
+            <tr>
+              <th>Téléphone</th>
+              <td>{{currentUser.phoneNumbers[0]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

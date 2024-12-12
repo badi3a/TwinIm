@@ -1,0 +1,51 @@
+<div class="container mt-4" *ngIf="currentUser">
+  <h2>Profil Administrateur</h2>
+  
+  <!-- Informations utilisateur -->
+  <div class="card mb-4">
+    <div class="card-header">
+      <h3>Informations personnelles</h3>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>Nom d'utilisateur</th>
+            <td>{{currentUser.firstName}} {{currentUser.lastName}}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{{currentUser.email}}</td>
+          </tr>
+          <tr>
+            <th>Rôle</th>
+            <td>{{currentUser.role}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Statistiques -->
+  <div class="card">
+    <div class="card-header">
+      <h3>Statistiques</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="alert alert-info">
+            <h4>Nombre total d'utilisateurs</h4>
+            <p class="display-4">{{totalUsers}}</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="alert alert-success">
+            <h4>Annonces disponibles</h4>
+            <p class="display-4">{{availableAnnouncements}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
