@@ -43,5 +43,102 @@
       "id": 5
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "ezzdine@gmail.com",
+      "password": "$2a$10$jXdDU.0dcSJ3th7aOOEUcO9C0cyumexl7TyzCpAYutnwBdlKn589K",
+      "firstName": "ezzdine",
+      "lastName": "ezzdine",
+      "role": "role_simpleuser",
+      "address": {
+        "street": "street ",
+        "city": "Vel illo nostrum qua",
+        "zipCode": "Iste eveniet autem "
+      },
+      "phoneNumbers": [
+        "12345678"
+      ],
+      "id": 7
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$zh3/ESPAUUJuqrda3CLagOv3j6cyPg9zAtT3gwTTu3ze8wQEJGbwC",
+      "firstName": "admin",
+      "lastName": "admin",
+      "role": "role_admin",
+      "address": {
+        "street": "Quisquam dolor provi",
+        "city": "Sed cupiditate labor",
+        "zipCode": "In elit sunt maxime"
+      },
+      "phoneNumbers": [
+        "98765432"
+      ],
+      "id": 9
+    },
+    {
+      "email": "ezzedineusersimple@gmail.com",
+      "password": "$2a$10$36mhUEaenvHDFZUTTkr/9OsiLvQILjTRLAgeEr6XV6X1ziF9myzYO",
+      "firstName": "Eaque ipsam vitae er",
+      "lastName": "Corporis eu quam vel",
+      "role": "role_simpleuser",
+      "address": {
+        "street": "Quaerat sed nulla es",
+        "city": "Et ipsum sunt elit",
+        "zipCode": "Nulla temporibus con"
+      },
+      "phoneNumbers": [
+        "12345678"
+      ],
+      "id": 10
+    },
+    {
+      "email": "Porro@gamiL.com",
+      "password": "$2a$10$OlcOtzBW9XUzzzclAKHYROiwrfVaOXX6giO2PboJ6JzJ2gudiB2pK",
+      "firstName": "Nihil eveniet qui q",
+      "lastName": "Earum ipsum praesen",
+      "role": "role_simpleuser",
+      "address": {
+        "street": "In ut sint et ad asp",
+        "city": "Dolore qui assumenda",
+        "zipCode": "Irure facere repudia"
+      },
+      "phoneNumbers": [
+        "12345678"
+      ],
+      "id": 11
+    },
+    {
+      "email": "Sit@gmail.com",
+      "password": "$2a$10$o8y9y1Hl08tnVsW.if6gbeIh1Dpz0AX6UtzEQ1C4e112tRQJ0xPcm",
+      "firstName": "Aut voluptatem id p",
+      "lastName": "Maiores minim est qu",
+      "role": "role_admin",
+      "address": {
+        "street": "Veritatis voluptatib",
+        "city": "Voluptate ullamco pl",
+        "zipCode": "Aute architecto non "
+      },
+      "phoneNumbers": [
+        "12345678"
+      ],
+      "id": 12
+    },
+    {
+      "email": "Magni@hzom.com",
+      "password": "$2a$10$zOhS3eKqy6p/4eMSGfopnei1PfILw2yXCI1tDCipyIq2ZjNPf/j1m",
+      "firstName": "aaaaz",
+      "lastName": "Consequatur Aliquam",
+      "role": "role_admin",
+      "address": {
+        "street": "Excepteur ex irure d",
+        "city": "Aliquam et sint fuga",
+        "zipCode": "Obcaecati pariatur "
+      },
+      "phoneNumbers": [
+        "11111111"
+      ],
+      "id": 13
+    }
+  ]
 }
