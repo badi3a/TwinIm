@@ -26,6 +26,32 @@
         please give a valid name with 3 char
       </div>
     </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" formControlName="email">
+    </div>
+    <div class="alert alert-danger" *ngIf="formRegister.get('email')?.invalid &&
+     formRegister.get('email')?.touched">
+      <div *ngIf="formRegister.get('email')?.hasError('required')">
+        this field is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>password</label>
+      <input type="password" class="form-control" formControlName="password">
+    </div>
+    <div class="alert alert-danger" *ngIf="formRegister.get('password')?.invalid &&
+     formRegister.get('password')?.touched">
+      <div *ngIf="formRegister.get('password')?.hasError('required')">
+        this field is required
+      </div>
+      <div *ngIf="formRegister.get('password')?.hasError('minlength')">
+        please give a valid name with 6 char
+      </div>
+    </div>
+    
     <div formGroupName="address">
         <div class="form-group">
           <label>street</label>

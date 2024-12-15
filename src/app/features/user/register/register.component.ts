@@ -20,6 +20,8 @@ export class RegisterComponent implements OnInit {
          //FormControl: class that match an input in the form
          {firstName: new FormControl('',[Validators.required, Validators.minLength(3)]),
          lastName: new FormControl('',[Validators.required, Validators.minLength(3)]),
+         password: new FormControl('',[Validators.required, Validators.minLength(6)]),
+         email: new FormControl('', [Validators.required,Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)]),
          address: new FormGroup(
            { street: new FormControl('',[Validators.required]),
              city: new FormControl('',[Validators.required]),
@@ -48,6 +50,7 @@ export class RegisterComponent implements OnInit {
      save(){
        //backend
        this.user = this.formRegister.getRawValue();
+       this.user.role = "userSimple";
        this.userService.addUser(this.user).subscribe(
          (data:User)=>{this.router.navigateByUrl('user/profile/${data.id}');}
        )

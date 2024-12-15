@@ -13,4 +13,5 @@ export class User {
   password: string;
   picture:string;
   birthday: Date;
+  role:string;
 }
