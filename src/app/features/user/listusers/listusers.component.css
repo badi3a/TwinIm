@@ -1,0 +1,50 @@
+.distinct-users-page {
+    padding: 25px;
+    margin: 0 auto;
+    max-width: 950px;
+  }
+  
+  .distinct-users-page h2 {
+    text-align: center;
+    color: #2c3e50; /* Couleur gris foncé */
+    font-weight: 600;
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  .distinct-users-page .distinct-users-table {
+    width: 100%;
+    border-spacing: 0;
+    margin-top: 30px;
+    border: 3px solid #aab7c4; /* Bordure grise différente */
+  }
+  
+  .distinct-users-page .distinct-users-table th,
+  .distinct-users-page .distinct-users-table td {
+    border: 1px solid #dde6ed; /* Bordures fines */
+    text-align: left; /* Alignement différent */
+    padding: 15px;
+  }
+  
+  .distinct-users-page .distinct-users-table th {
+    background-color: #2980b9; /* Bleu plus vif */
+    color: #f9f9f9;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase; /* Texte en majuscules */
+  }
+  
+  .distinct-users-page .distinct-users-table tr:nth-child(even) {
+    background-color: #ecf0f1; /* Gris clair */
+  }
+  
+  .distinct-users-page .distinct-users-table tr:hover {
+    background-color: #d6eaf8; /* Bleu clair */
+    transition: background-color 0.3s ease; /* Animation */
+  }
+  
+  .distinct-users-page .distinct-users-table td {
+    font-size: 14px;
+    color: #2e4053; /* Gris foncé légèrement différent */
+  }
+  

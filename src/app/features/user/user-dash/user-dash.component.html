@@ -1,0 +1,12 @@
+<div class="stat-card user-card">
+    <h2>Total Users</h2>
+    <p>{{ totalUsers }}</p>
+  
+    <!-- Bouton pour afficher/masquer la table -->
+    <button (click)="toggleTableVisibility()">
+      {{ showTable ? 'Hide Users' : 'View Users' }} 
+    </button>
+    <app-listusers [showTable]="showTable"></app-listusers>
+
+  </div>
+  

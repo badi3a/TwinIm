@@ -10,20 +10,27 @@ import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "./services/user.service";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UserDashComponent } from './user-dash/user-dash.component';
+import { AnnouncementDashComponent } from './announcement-dash/announcement-dash.component';
+import { ListusersComponent } from './listusers/listusers.component';
 @NgModule({
   declarations: [
     UserComponent,
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    UserDashComponent,
+    AnnouncementDashComponent,
+    ListusersComponent
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    
   ],
   providers: [UserService]
 })

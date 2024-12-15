@@ -1,0 +1,26 @@
+<div class="distinct-users-page">
+
+    <!-- Table affichée conditionnellement -->
+    <div *ngIf="showTable">
+      <h2>List of Users</h2>
+      <table class="distinct-users-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

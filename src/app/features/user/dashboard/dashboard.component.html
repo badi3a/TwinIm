@@ -1,0 +1,19 @@
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h3>Dashboard</h3>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a routerLink="user-dash">Users</a></li>
+        <li><a routerLink="announcement-dash">Announcements</a></li>
+        <li><a (click)="logOut()">LogOut</a></li>
+      </ul>
+    </div>
+  
+    <!-- Main content -->
+    <div class="main-content">
+      <router-outlet></router-outlet>  <!-- Vue dynamique selon la route -->
+    </div>
+  </div>
+  

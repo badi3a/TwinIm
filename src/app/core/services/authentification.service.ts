@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,7 +10,7 @@ export class AuthentificationService {
 
   roleAS : any;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private router:Router) { }
 
   login(data:any):Observable<any>{
     return this.http.post<any>("http://localhost:3000/signin",data);
@@ -26,7 +27,10 @@ export class AuthentificationService {
       return false
       }
 
-    logout(){
-      localStorage.clear(); }
+    
+      logOut(){
+        localStorage.clear();
+        this.router.navigateByUrl('/user/login')
+      }
     
 }

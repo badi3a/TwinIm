@@ -21,7 +21,7 @@ export class RoleGuardGuard implements CanActivate {
           return true; // L'utilisateur est authentifié, autorisez l'accès à la route
           //(rôle admin)
           }
-          this.authService.logout();
+          this.authService.logOut();
           return false;
         }
     

@@ -76,6 +76,38 @@
       ],
       "role": "ROLE_ADMIN",
       "id": 2
+    },
+    {
+      "email": "fouratchawech50@gmail.com",
+      "password": "$2a$10$D7oCLS8L1Fspwvx9WIs9KeNAA5uklmQSrKWEsxEKda/C16bTJw3nu",
+      "firstName": "mounir",
+      "lastName": "baalouch",
+      "address": {
+        "street": "23 rue louis pouey, residence defense 2000",
+        "city": "Puteaux, Île-de-France, 92800, France",
+        "zipCode": "3000"
+      },
+      "phoneNumbers": [
+        "50332262"
+      ],
+      "role": "userSimple",
+      "id": 3
+    },
+    {
+      "email": "sahra@esprit.tn",
+      "password": "$2a$10$GFrarQSnZufYsL4.T4KMBOU0Nki2dP/UDo25U8talcdUc3QExX2py",
+      "firstName": "mohamed",
+      "lastName": "saad",
+      "address": {
+        "street": "23 rue louis pouey, residence defense 2000",
+        "city": "Puteaux, Île-de-France, 92800, France",
+        "zipCode": "3000"
+      },
+      "phoneNumbers": [
+        "50332262"
+      ],
+      "role": "userSimple",
+      "id": 4
     }
   ]
 }

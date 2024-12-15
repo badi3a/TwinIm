@@ -11,8 +11,9 @@ import {HttpClientModule} from "@angular/common/http";
 import {SharedModule} from "./shared/shared.module";
 import { AnnouncementService } from './features/announcement/services/announcement.service';
 import {AnnouncementModule} from "./features/announcement/announcement.module";
-import {CardComponent} from "./features/announcement/card/card.component";
 import {CardAnnonceComponent} from "./layouts/card-annonce/card-annonce.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -25,6 +26,7 @@ import {CardAnnonceComponent} from "./layouts/card-annonce/card-annonce.componen
     FooterComponent,
     NotFoundComponent,
 
+
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import {CardAnnonceComponent} from "./layouts/card-annonce/card-annonce.componen
     SharedModule,
     AnnouncementModule,
     CardAnnonceComponent,
+    BrowserAnimationsModule
   ],
   providers: [AnnouncementService],
   bootstrap: [AppComponent]

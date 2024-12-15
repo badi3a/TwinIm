@@ -1,0 +1,41 @@
+.stat-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    margin: 20px;
+    flex: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .stat-card h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+  }
+  
+  .stat-card p {
+    font-size: 36px;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #e74c3c;
+  }
+  
+  /* Optionnel: Si vous souhaitez une couleur différente pour les annonces */
+  .stat-card.announcement-card {
+    background-color: #f39c12;
+    color: #fff;
+  }
+  
+  .stat-card.announcement-card p {
+    color: #fff;
+  }
+  

@@ -23,4 +23,13 @@ export class UserService {
   deleteUser(id:number):Observable<User> {
     return this.http.delete<User>(`${this.api}/users/${id}`)
   }
+
+   // Fetch the list of users
+   getUsers(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.api}/users`);
+  }
+
+  getAnnouncements(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.api}/announcements`);
+  }
 }
